@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Agent 探索 | 大喜</title>
+    <meta
+      name="description"
+      content="HomeClaw AI Agent 探索作品详情，展示桌面框架、主动感知系统与智能服务体验设计。"
+    />
+    <link rel="stylesheet" href="../page.css" />
+  </head>
+  <body class="ai-agent-figma-page">
+    <main class="agent-modular-page" aria-label="AI Agent 探索详情页">
+      <canvas class="agent-starfield" aria-hidden="true"></canvas>
+
+      <section class="agent-slice agent-opening-section agent-reveal" aria-label="HomeClaw AI Agent 作品介绍">
+        <img
+          src="../assets/images/ai-agent-slices/ai-agent-section-01.png"
+          width="1920"
+          height="13217"
+          alt="HomeClaw AI Agent 作品介绍、项目背景、桌面框架和主动感知系统设计"
+        />
+        <video
+          class="agent-opening-video"
+          src="../assets/videos/opening.webm"
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="metadata"
+          aria-label="开篇视频"
+        ></video>
+      </section>
+
+      <section class="agent-video-section agent-reveal" aria-label="视频区域一" data-video-slot="1">
+        <img
+          src="../assets/images/ai-agent-slices/ai-agent-video-01-placeholder.png"
+          width="1920"
+          height="738"
+          alt="视频区域一占位"
+        />
+        <!-- 后续上传视频后，将 video src 指向 assets/videos/ 下的文件即可。 -->
+        <video
+          class="agent-video-frame"
+          src="../assets/videos/active-perception-inspection.webm"
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="metadata"
+          aria-label="视频区域一"
+        ></video>
+      </section>
+
+      <section class="agent-slice agent-state-section agent-reveal" aria-label="可感知的交互载体">
+        <img
+          src="../assets/images/ai-agent-slices/ai-agent-section-02-clean.png"
+          width="1920"
+          height="1129"
+          alt="可感知的交互载体与 Agent 状态反馈体系"
+        />
+        <div class="agent-state-animations" aria-hidden="true">
+          <img
+            class="agent-state-animation agent-state-waiting"
+            src="../assets/images/ai-agent-states/waiting.webp"
+            alt=""
+          />
+          <img
+            class="agent-state-animation agent-state-output"
+            src="../assets/images/ai-agent-states/content-output.webp"
+            alt=""
+          />
+          <img
+            class="agent-state-animation agent-state-receiving"
+            src="../assets/images/ai-agent-states/voice-receiving.webp"
+            alt=""
+          />
+          <img
+            class="agent-state-animation agent-state-understanding"
+            src="../assets/images/ai-agent-states/understanding.webp"
+            alt=""
+          />
+          <img
+            class="agent-state-animation agent-state-error"
+            src="../assets/images/ai-agent-states/error-feedback.webp"
+            alt=""
+          />
+        </div>
+      </section>
+
+      <section class="agent-video-section agent-reveal" aria-label="视频区域二" data-video-slot="2">
+        <img
+          src="../assets/images/ai-agent-slices/ai-agent-video-02-placeholder.png"
+          width="1920"
+          height="738"
+          alt="视频区域二占位"
+        />
+        <video
+          class="agent-video-frame"
+          src="../assets/videos/wake-interaction.webm"
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="metadata"
+          aria-label="视频区域二"
+        ></video>
+      </section>
+
+      <section class="agent-slice agent-reveal" aria-label="页面结尾">
+        <img
+          src="../assets/images/ai-agent-slices/ai-agent-section-03.png"
+          width="1920"
+          height="134"
+          alt=""
+        />
+      </section>
+
+      <template id="agent-video-slot-template">
+        <section class="agent-video-section agent-reveal" aria-label="视频区域三" data-video-slot="3">
+          <video class="agent-video-frame" muted playsinline preload="metadata" aria-label="视频区域三"></video>
+        </section>
+      </template>
+    </main>
+    <script>
+      (function () {
+        const canvas = document.querySelector(".agent-starfield");
+
+        if (!canvas) {
+          return;
+        }
+
+        const context = canvas.getContext("2d");
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const starCount = 100;
+        const bigStarCount = 5 + Math.floor(Math.random() * 4);
+        const starColors = ["#ffffff", "#f6fbff", "#eaf6ff", "#d9efff", "#c9e7ff"];
+        const particles = [];
+        const bigStars = [];
+        let meteor = null;
+        let nextMeteorAt = 0;
+        let width = 0;
+        let height = 0;
+        let dpr = 1;
+        let lastTime = performance.now();
+
+        function randomBetween(min, max) {
+          return min + Math.random() * (max - min);
+        }
+
+        function scheduleMeteor(now) {
+          nextMeteorAt = now + randomBetween(5000, 10000);
+        }
+
+        function createParticle() {
+          return {
+            x: Math.random() * width,
+            y: Math.random() * height,
+            size: randomBetween(1, 3),
+            speed: randomBetween(0.1, 0.3),
+            color: starColors[Math.floor(Math.random() * starColors.length)],
+            alpha: randomBetween(0.42, 0.95),
+          };
+        }
+
+        function createBigStar() {
+          return {
+            x: Math.random() * width,
+            y: Math.random() * height,
+            size: randomBetween(4, 6),
+            speed: randomBetween(0.04, 0.12),
+            color: starColors[Math.floor(Math.random() * starColors.length)],
+            phase: Math.random() * Math.PI * 2,
+            twinkleSpeed: randomBetween(0.001, 0.0024),
+          };
+        }
+
+        function resizeCanvas() {
+          dpr = Math.min(window.devicePixelRatio || 1, 2);
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = Math.ceil(width * dpr);
+          canvas.height = Math.ceil(height * dpr);
+          canvas.style.width = width + "px";
+          canvas.style.height = height + "px";
+          context.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+          particles.length = 0;
+          bigStars.length = 0;
+
+          for (let index = 0; index < starCount; index += 1) {
+            particles.push(createParticle());
+          }
+
+          for (let index = 0; index < bigStarCount; index += 1) {
+            bigStars.push(createBigStar());
+          }
+        }
+
+        function drawParticle(star, deltaFrames) {
+          star.y -= star.speed * deltaFrames;
+
+          if (star.y + star.size < 0) {
+            star.y = height + star.size;
+            star.x = Math.random() * width;
+          }
+
+          context.globalAlpha = star.alpha;
+          context.fillStyle = star.color;
+          context.beginPath();
+          context.arc(star.x, star.y, star.size / 2, 0, Math.PI * 2);
+          context.fill();
+        }
+
+        function drawBigStar(star, now, deltaFrames) {
+          star.y -= star.speed * deltaFrames;
+
+          if (star.y + star.size < 0) {
+            star.y = height + star.size;
+            star.x = Math.random() * width;
+          }
+
+          const pulse = 0.54 + Math.sin(now * star.twinkleSpeed + star.phase) * 0.28;
+          const radius = star.size / 2;
+
+          context.globalAlpha = Math.max(0.2, pulse);
+          context.fillStyle = star.color;
+          context.shadowColor = star.color;
+          context.shadowBlur = 14;
+          context.beginPath();
+          context.arc(star.x, star.y, radius, 0, Math.PI * 2);
+          context.fill();
+          context.shadowBlur = 0;
+        }
+
+        function spawnMeteor(now) {
+          const length = 50;
+          const startX = randomBetween(-80, width * 0.45);
+          const startY = randomBetween(-60, height * 0.38);
+          const travel = Math.max(width, height) * randomBetween(0.72, 1.05);
+
+          meteor = {
+            startX,
+            startY,
+            endX: startX + travel,
+            endY: startY + travel,
+            length,
+            born: now,
+            duration: 1500,
+          };
+        }
+
+        function drawMeteor(now) {
+          if (!meteor) {
+            return;
+          }
+
+          const progress = (now - meteor.born) / meteor.duration;
+
+          if (progress >= 1) {
+            meteor = null;
+            scheduleMeteor(now);
+            return;
+          }
+
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const headX = meteor.startX + (meteor.endX - meteor.startX) * eased;
+          const headY = meteor.startY + (meteor.endY - meteor.startY) * eased;
+          const tailOffset = meteor.length / Math.sqrt(2);
+          const tailX = headX - tailOffset;
+          const tailY = headY - tailOffset;
+          const fade = progress < 0.18 ? progress / 0.18 : Math.max(0, (1 - progress) / 0.22);
+          const gradient = context.createLinearGradient(tailX, tailY, headX, headY);
+
+          gradient.addColorStop(0, "rgba(255, 255, 255, 0)");
+          gradient.addColorStop(0.55, "rgba(255, 255, 255, 0.46)");
+          gradient.addColorStop(1, "rgba(255, 255, 255, 0.96)");
+
+          context.globalAlpha = fade;
+          context.strokeStyle = gradient;
+          context.lineWidth = 2;
+          context.lineCap = "round";
+          context.shadowColor = "rgba(255, 255, 255, 0.82)";
+          context.shadowBlur = 10;
+          context.beginPath();
+          context.moveTo(tailX, tailY);
+          context.lineTo(headX, headY);
+          context.stroke();
+
+          context.globalAlpha = fade;
+          context.fillStyle = "#ffffff";
+          context.shadowBlur = 16;
+          context.beginPath();
+          context.arc(headX, headY, 2.2, 0, Math.PI * 2);
+          context.fill();
+          context.shadowBlur = 0;
+        }
+
+        function draw(now) {
+          const deltaFrames = Math.min((now - lastTime) / 16.67, 3);
+          lastTime = now;
+
+          context.clearRect(0, 0, width, height);
+          context.globalAlpha = 1;
+          context.shadowBlur = 0;
+
+          for (const particle of particles) {
+            drawParticle(particle, deltaFrames);
+          }
+
+          for (const star of bigStars) {
+            drawBigStar(star, now, deltaFrames);
+          }
+
+          if (!prefersReducedMotion && !meteor && now >= nextMeteorAt) {
+            spawnMeteor(now);
+          }
+
+          if (!prefersReducedMotion) {
+            drawMeteor(now);
+          }
+
+          window.requestAnimationFrame(draw);
+        }
+
+        resizeCanvas();
+        scheduleMeteor(performance.now());
+        window.addEventListener("resize", resizeCanvas);
+        window.requestAnimationFrame(draw);
+      })();
+    </script>
+  </body>
+</html>

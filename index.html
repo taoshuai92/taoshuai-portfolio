@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>大喜 | 产品体验设计</title>
+    <meta
+      name="description"
+      content="大喜的个人网站，展示产品体验设计作品、AI Agent 探索、企业级系统设计与 C 端产品设计经历。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page-shell" aria-label="大喜个人网站首页">
+      <div class="artboard" aria-label="首页设计稿">
+        <section class="screen hero-screen" aria-label="首页首屏">
+          <img class="layer hero-left-combined" src="./assets/images/hero-left-combined.png" alt="Hello! 我是大喜，11 年产品体验设计经验" />
+          <img class="layer doodle-star" src="./assets/images/doodle-star.png" alt="" />
+          <img class="layer doodle-sun" src="./assets/images/doodle-sun.png" alt="" />
+          <video
+            class="layer hero-girl-video"
+            src="./assets/videos/hero-girl-transparent.webm"
+            width="1424"
+            height="1120"
+            autoplay
+            loop
+            muted
+            playsinline
+            aria-label="大喜人物视频"
+          ></video>
+          <img class="layer doodle-books" src="./assets/images/doodle-books.png" alt="" />
+          <img class="layer doodle-paper" src="./assets/images/doodle-paper.png" alt="" />
+
+          <a class="hotspot view-work" href="#works" aria-label="查看作品" data-action="works" data-scroll-to-works></a>
+          <a
+            class="hotspot download-resume"
+            href="./assets/resume/resume.pdf"
+            download="resume.pdf"
+            aria-label="下载简历"
+            data-action="resume"
+            data-resume-download
+          ></a>
+        </section>
+
+        <span id="works" class="scroll-anchor" aria-hidden="true"></span>
+
+        <section class="screen works-screen" aria-label="作品展示">
+          <video
+            class="layer works-hero-video"
+            src="./assets/videos/ai-agent-portfolio.webm"
+            width="1696"
+            height="928"
+            autoplay
+            loop
+            muted
+            playsinline
+            aria-label="AI Agent 探索作品展示视频"
+          ></video>
+          <img class="layer detail-ai-img" src="./assets/images/detail-button-yellow.png" alt="" />
+          <a class="module-link module-ai" href="./pages/ai-agent.html" aria-label="进入 AI Agent 探索页面"></a>
+          <a class="hotspot detail-ai" href="./pages/ai-agent.html" aria-label="查看 AI Agent 探索详情"></a>
+        </section>
+
+        <section class="screen project-screen" aria-label="项目分类">
+          <img class="layer enterprise-card" src="./assets/images/enterprise-card.png" alt="企业级系统设计，2021-2024" />
+          <img class="layer consumer-card" src="./assets/images/consumer-card.png" alt="C 端产品设计，2015-2021" />
+          <img class="layer detail-enterprise-img" src="./assets/images/detail-button-blue.png" alt="" />
+          <img class="layer detail-consumer-img" src="./assets/images/detail-button-yellow.png" alt="" />
+          <a class="module-link module-enterprise" href="https://works.meiye.art/S7W75Md71615DCE1" aria-label="进入企业级系统设计页面"></a>
+          <a class="module-link module-consumer" href="https://works.meiye.art/J85M2d030217A8B6" aria-label="进入 C 端产品设计页面"></a>
+          <a class="hotspot detail-enterprise" href="https://works.meiye.art/S7W75Md71615DCE1" aria-label="查看企业级系统设计详情"></a>
+          <a class="hotspot detail-consumer" href="https://works.meiye.art/J85M2d030217A8B6" aria-label="查看 C 端产品设计详情"></a>
+        </section>
+
+        <section class="screen contact-screen" aria-label="联系方式">
+          <video
+            class="layer contact-footer-video"
+            src="./assets/videos/footer-portfolio-transparent.webm"
+            width="1776"
+            height="880"
+            autoplay
+            loop
+            muted
+            playsinline
+            aria-label="作品集底部联系方式视频"
+          ></video>
+        </section>
+      </div>
+    </main>
+
+    <script src="./script.js?v=20260714-4"></script>
+  </body>
+</html>

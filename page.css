@@ -1,0 +1,205 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #fffaf0;
+  color: #17385f;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.placeholder-page {
+  width: min(100% - 40px, 960px);
+  margin: 0 auto;
+  padding: 64px 0;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-bottom: 56px;
+  color: #1d5fb8;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: clamp(40px, 8vw, 88px);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+p {
+  margin: 0;
+  font-size: clamp(18px, 3vw, 28px);
+  line-height: 1.6;
+}
+
+.ai-agent-figma-page {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #000;
+}
+
+.agent-modular-page {
+  position: relative;
+  width: 100%;
+  background: #000;
+}
+
+.agent-starfield {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.agent-slice,
+.agent-video-section {
+  width: min(100vw, 1920px);
+  margin: 0 auto;
+}
+
+.agent-slice img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+.agent-opening-section {
+  position: relative;
+}
+
+.agent-opening-video {
+  position: absolute;
+  left: 5.0781%;
+  top: calc(5.9036% + 30px);
+  z-index: 4;
+  display: block;
+  width: 89.8438%;
+  aspect-ratio: 1725 / 739;
+  border: 0;
+  background: transparent;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.agent-state-section {
+  position: relative;
+}
+
+.agent-state-animations {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.agent-state-animations .agent-state-animation {
+  position: absolute;
+  display: block;
+  width: 12.5%;
+  max-width: none;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  left: calc(var(--state-x) / 1920 * 100%);
+  top: calc(var(--state-y) / 1129 * 100%);
+  user-select: none;
+}
+
+.agent-state-waiting {
+  --state-x: 115.5;
+  --state-y: 652;
+}
+
+.agent-state-output {
+  --state-x: 467.5;
+  --state-y: 649;
+}
+
+.agent-state-receiving {
+  --state-x: 816;
+  --state-y: 651;
+}
+
+.agent-state-understanding {
+  --state-x: 1157.5;
+  --state-y: 649.5;
+}
+
+.agent-state-error {
+  --state-x: 1503;
+  --state-y: 651;
+}
+
+.agent-video-section {
+  position: relative;
+}
+
+.agent-video-section img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+.agent-video-frame {
+  position: absolute;
+  left: 5.0521%;
+  top: 0;
+  display: none;
+  width: 89.8958%;
+  height: 100%;
+  border: 0;
+  border-radius: 36px;
+  background: #171717;
+  object-fit: cover;
+}
+
+.agent-video-frame[src] {
+  display: block;
+}
+
+.ai-agent-figma-page.enable-agent-motion .agent-reveal {
+  animation: agent-reveal 700ms ease both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 22%;
+}
+
+@keyframes agent-reveal {
+  from {
+    opacity: 0.72;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-agent-figma-page.enable-agent-motion .agent-reveal {
+    animation: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .agent-video-frame {
+    border-radius: 18px;
+  }
+}

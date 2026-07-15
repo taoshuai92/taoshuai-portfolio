@@ -1,0 +1,269 @@
+:root {
+  --design-width: 1920;
+  --design-height: 3773;
+  --page-max-width: 1920px;
+  --focus-color: #1f73de;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #fff;
+  color: #12345a;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+img,
+video {
+  display: block;
+  user-select: none;
+}
+
+.page-shell {
+  width: 100%;
+  overflow-x: hidden;
+  background: #fff;
+}
+
+.artboard {
+  position: relative;
+  width: min(100vw, var(--page-max-width));
+  height: calc(min(100vw, var(--page-max-width)) * var(--design-height) / var(--design-width));
+  margin: 0 auto;
+  overflow: hidden;
+  background: #fff;
+}
+
+.screen,
+.layer,
+.hotspot,
+.scroll-anchor {
+  position: absolute;
+}
+
+.screen {
+  left: 0;
+  width: 100%;
+}
+
+.hero-screen {
+  top: 0;
+  height: 25.709%;
+}
+
+.works-screen {
+  top: 25.709%;
+  height: 26.928%;
+}
+
+.project-screen {
+  top: 52.637%;
+  height: 24.748%;
+}
+
+.contact-screen {
+  top: 74.768%;
+  height: 25.285%;
+}
+
+.layer {
+  height: auto;
+  pointer-events: none;
+}
+
+.hero-left-combined {
+  left: 7.656%;
+  top: 10.412%;
+  width: 47.656%;
+}
+
+.hero-girl-video {
+  left: 41.563%;
+  top: 7.526%;
+  width: 58.177%;
+  aspect-ratio: 1424 / 1120;
+  object-fit: contain;
+}
+
+.doodle-star {
+  left: 56.823%;
+  top: 11.856%;
+  width: 3.542%;
+}
+
+.doodle-sun {
+  left: 85.625%;
+  top: 22.680%;
+  width: 6.563%;
+}
+
+.doodle-books {
+  left: 27.552%;
+  top: 77.113%;
+  width: 17.5%;
+}
+
+.doodle-paper {
+  left: 6.979%;
+  top: 70.928%;
+  width: 19.479%;
+}
+
+.works-hero-video {
+  left: -0.26%;
+  top: 0;
+  width: 100.313%;
+  aspect-ratio: 1696 / 928;
+  object-fit: contain;
+}
+
+.detail-ai-img {
+  left: 7.656%;
+  top: 16.831%;
+  width: 15.208%;
+}
+
+.enterprise-card {
+  left: 3.438%;
+  top: 0;
+  width: 46.198%;
+}
+
+.consumer-card {
+  left: 50.651%;
+  top: 0;
+  width: 46.527%;
+}
+
+.detail-enterprise-img {
+  left: 7.656%;
+  top: 21.627%;
+  width: 15.208%;
+}
+
+.detail-consumer-img {
+  left: 55.052%;
+  top: 21.627%;
+  width: 15.208%;
+}
+
+.contact-footer-video {
+  left: 3.75%;
+  top: 0;
+  width: 92.5%;
+  aspect-ratio: 1776 / 880;
+  object-fit: contain;
+}
+
+.scroll-anchor {
+  left: 0;
+  top: 25.709%;
+  width: 1px;
+  height: 1px;
+}
+
+.hotspot,
+.module-link {
+  position: absolute;
+  display: block;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0);
+}
+
+.module-link {
+  z-index: 8;
+}
+
+.hotspot {
+  z-index: 10;
+  border-radius: 8px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hotspot:focus-visible,
+.module-link:focus-visible {
+  outline: 4px solid var(--focus-color);
+  outline-offset: 4px;
+}
+
+.view-work {
+  left: 7.55%;
+  top: 63%;
+  width: 18.55%;
+  height: 20%;
+}
+
+.download-resume {
+  left: 27.45%;
+  top: 63%;
+  width: 19.9%;
+  height: 20%;
+}
+
+.module-ai {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.module-enterprise,
+.module-consumer {
+  top: 0;
+  height: 100%;
+  max-height: 934px;
+}
+
+.module-enterprise {
+  left: 3.438%;
+  width: 46.198%;
+}
+
+.module-consumer {
+  left: 50.651%;
+  width: 46.527%;
+}
+
+.detail-ai {
+  left: 7.656%;
+  top: 16.831%;
+  width: 15.208%;
+  height: 11.417%;
+}
+
+.detail-enterprise {
+  left: 7.656%;
+  top: 21.627%;
+  width: 15.208%;
+  height: 12.42%;
+}
+
+.detail-consumer {
+  left: 55.052%;
+  top: 21.627%;
+  width: 15.208%;
+  height: 12.42%;
+}
+
+@media (min-width: 1921px) {
+  body {
+    background: #f7fbff;
+  }
+}
+
+@media (max-width: 720px) {
+  .hotspot:focus-visible,
+  .module-link:focus-visible {
+    outline-width: 2px;
+    outline-offset: 2px;
+  }
+}
