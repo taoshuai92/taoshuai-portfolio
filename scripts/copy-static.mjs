@@ -11,6 +11,8 @@ for (const entry of ["assets", "index.html"]) {
 cpSync("script.js", "dist/client/script.js");
 cpSync("page.css", "dist/client/page.css");
 cpSync("pages", "dist/client/pages", { recursive: true });
+cpSync("assets/images", "dist/client/assets/images", { recursive: true });
+cpSync("assets/videos", "dist/client/assets/videos", { recursive: true });
 cpSync("assets/resume", "dist/client/assets/resume", { recursive: true });
 writeFileSync("dist/client/.nojekyll", "");
 writeFileSync("dist/client/CNAME", "taoshuai.cn\n");
