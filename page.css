@@ -93,7 +93,7 @@ p {
   aspect-ratio: 1725 / 739;
   border: 0;
   background: transparent;
-  object-fit: contain;
+  object-fit: cover;
   pointer-events: none;
 }
 

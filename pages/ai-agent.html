@@ -23,7 +23,7 @@
         />
         <video
           class="agent-opening-video"
-          src="../assets/videos/opening.webm"
+          src="../assets/videos/opening-no-text.webm"
           autoplay
           loop
           muted
@@ -133,7 +133,7 @@
 
         const context = canvas.getContext("2d");
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        const starCount = 100;
+        const starCount = 80;
         const bigStarCount = 5 + Math.floor(Math.random() * 4);
         const starColors = ["#ffffff", "#f6fbff", "#eaf6ff", "#d9efff", "#c9e7ff"];
         const particles = [];
