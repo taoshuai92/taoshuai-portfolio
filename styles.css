@@ -1,6 +1,6 @@
 :root {
   --design-width: 1920;
-  --design-height: 3773;
+  --design-height: 4028;
   --page-max-width: 1920px;
   --focus-color: #1f73de;
 }
@@ -56,22 +56,22 @@ video {
 
 .hero-screen {
   top: 0;
-  height: 25.709%;
+  height: 24.081%;
 }
 
 .works-screen {
-  top: 25.709%;
-  height: 26.928%;
+  top: 24.081%;
+  height: 25.223%;
 }
 
 .project-screen {
-  top: 52.637%;
-  height: 24.748%;
+  top: 49.305%;
+  height: 23.188%;
 }
 
 .contact-screen {
-  top: 74.768%;
-  height: 25.285%;
+  top: 72.493%;
+  height: 27.507%;
 }
 
 .layer {
@@ -156,16 +156,16 @@ video {
 }
 
 .contact-footer-video {
-  left: 3.75%;
+  left: 0;
   top: 0;
-  width: 92.5%;
-  aspect-ratio: 1776 / 880;
+  width: 100%;
+  aspect-ratio: 1664 / 960;
   object-fit: contain;
 }
 
 .scroll-anchor {
   left: 0;
-  top: 25.709%;
+  top: 24.081%;
   width: 1px;
   height: 1px;
 }
