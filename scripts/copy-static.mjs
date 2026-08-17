@@ -1,4 +1,5 @@
 import { cpSync, mkdirSync, renameSync, rmSync, writeFileSync } from "node:fs";
+import { dirname } from "node:path";
 
 rmSync("dist/client", { recursive: true, force: true });
 mkdirSync("dist/client", { recursive: true });
@@ -11,9 +12,30 @@ for (const entry of ["assets", "index.html"]) {
 cpSync("script.js", "dist/client/script.js");
 cpSync("page.css", "dist/client/page.css");
 cpSync("pages", "dist/client/pages", { recursive: true });
-cpSync("assets/images", "dist/client/assets/images", { recursive: true });
-cpSync("assets/videos", "dist/client/assets/videos", { recursive: true });
-cpSync("assets/resume", "dist/client/assets/resume", { recursive: true });
+
+const staticFiles = [
+  "assets/resume/resume.pdf",
+  "assets/images/ai-agent-slices/ai-agent-section-01.png",
+  "assets/images/ai-agent-slices/ai-agent-section-02-clean.png",
+  "assets/images/ai-agent-slices/ai-agent-section-03.png",
+  "assets/images/ai-agent-slices/ai-agent-summary.png",
+  "assets/images/ai-agent-slices/ai-agent-video-01-placeholder.png",
+  "assets/images/ai-agent-slices/ai-agent-video-02-placeholder.png",
+  "assets/images/ai-agent-states/content-output.webp",
+  "assets/images/ai-agent-states/error-feedback.webp",
+  "assets/images/ai-agent-states/understanding.webp",
+  "assets/images/ai-agent-states/voice-receiving.webp",
+  "assets/images/ai-agent-states/waiting.webp",
+  "assets/videos/active-perception-inspection.webm",
+  "assets/videos/opening-no-text.webm",
+  "assets/videos/wake-interaction.webm",
+];
+
+for (const source of staticFiles) {
+  const target = `dist/client/${source}`;
+  mkdirSync(dirname(target), { recursive: true });
+  cpSync(source, target);
+}
 writeFileSync("dist/client/.nojekyll", "");
 writeFileSync("dist/client/CNAME", "taoshuai.cn\n");
 
