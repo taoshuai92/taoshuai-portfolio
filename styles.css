@@ -84,7 +84,7 @@ button {
   position: fixed;
   inset: 0;
   z-index: 5;
-  background-image: url("./assets/images/portfolio-intro-woman.png");
+  background-image: url("./assets/images/portfolio-intro-woman.jpg");
   background-position: center;
   background-size: cover;
   pointer-events: none;
