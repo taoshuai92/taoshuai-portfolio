@@ -15,7 +15,7 @@ cpSync("pages", "dist/client/pages", { recursive: true });
 
 const staticFiles = [
   "assets/resume/resume.pdf",
-  "assets/images/ai-agent-slices/ai-agent-section-01.jpg",
+  "assets/images/ai-agent-slices/ai-agent-section-01-optimized.jpg",
   "assets/images/ai-agent-slices/ai-agent-section-02-clean.png",
   "assets/images/ai-agent-slices/ai-agent-section-03.png",
   "assets/images/ai-agent-slices/ai-agent-summary.jpg",
@@ -26,7 +26,7 @@ const staticFiles = [
   "assets/images/ai-agent-states/understanding.webp",
   "assets/images/ai-agent-states/voice-receiving.webp",
   "assets/images/ai-agent-states/waiting.webp",
-  "assets/videos/active-perception-inspection-optimized.webm",
+  "assets/videos/active-perception-inspection-mobile.webm",
   "assets/videos/opening-no-text.webm",
   "assets/videos/wake-interaction.webm",
 ];
