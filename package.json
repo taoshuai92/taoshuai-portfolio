@@ -4,10 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "vite",
     "build": "vite build && node scripts/copy-static.mjs"
   },
   "dependencies": {
+    "gsap": "^3.15.0",
+    "three": "^0.185.1",
     "vite": "latest"
-  },
-  "devDependencies": {}
+  }
 }
