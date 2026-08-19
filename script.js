@@ -1,21 +1,14 @@
-import * as THREE from "three";
-import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const INTRO_STORAGE_KEY = "daxi-portfolio-intro-v2";
 const portfolioIntro = document.querySelector("[data-portfolio-intro]");
 const portfolioCard = document.querySelector("[data-portfolio-card]");
 const introSkip = document.querySelector("[data-intro-skip]");
+const introOpen = document.querySelector("[data-intro-open]");
 const replayIntro = document.querySelector("[data-replay-intro]");
+const introScene = document.querySelector("[data-intro-scene]");
 const introCharacter = document.querySelector(".intro-character");
-const introHands = [...document.querySelectorAll(".intro-hand-layer")];
-const introHandLeft = document.querySelector("[data-intro-hand-left]");
-const introHandRight = document.querySelector("[data-intro-hand-right]");
 const paperGhostMask = document.querySelector("[data-paper-ghost-mask]");
-const introHint = document.querySelector(".intro-handoff-hint");
 const introCursor = document.querySelector(".intro-open-cursor");
 const introHero = document.querySelector("[data-intro-hero]");
 const portfolioName = document.querySelector("[data-portfolio-name]");
@@ -33,30 +26,13 @@ const heroCta = document.querySelector(".chapter-intro .action-primary");
 const introAsset = {
   width: 2848,
   height: 1600,
-  paper: { x: 1248, y: 460, width: 402, height: 454 },
-  leftHand: [
-    [1110, 645],
-    [1245, 635],
-    [1328, 690],
-    [1335, 790],
-    [1270, 835],
-    [1160, 810],
-    [1110, 750],
-  ],
-  rightHand: [
-    [1590, 660],
-    [1685, 650],
-    [1720, 700],
-    [1712, 790],
-    [1662, 820],
-    [1598, 790],
-    [1580, 715],
-  ],
+  paper: { x: 1248, y: 474, width: 406, height: 560 },
 };
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const isMobile = window.matchMedia("(max-width: 720px)").matches;
 let introTimeline;
+let introEntranceTimeline;
 let introPlaying = false;
 
 function getIntroImageLayout() {
@@ -70,17 +46,6 @@ function getIntroImageLayout() {
   };
 }
 
-function mapAssetPoint([x, y], layout) {
-  return [layout.offsetX + x * layout.scale, layout.offsetY + y * layout.scale];
-}
-
-function makeClipPath(points, layout) {
-  return `polygon(${points
-    .map((point) => mapAssetPoint(point, layout))
-    .map(([x, y]) => `${x.toFixed(2)}px ${y.toFixed(2)}px`)
-    .join(", ")})`;
-}
-
 function alignIntroLayers() {
   if (!portfolioIntro || portfolioIntro.hidden || introPlaying) return;
   const layout = getIntroImageLayout();
@@ -89,6 +54,9 @@ function alignIntroLayers() {
   const top = layout.offsetY + paper.y * layout.scale;
   const width = paper.width * layout.scale;
   const height = paper.height * layout.scale;
+  const actionHeight = Math.max(42, Math.min(48, height * 0.1));
+  const actionBottomInset = Math.max(14, height * 0.045);
+  const actionTop = top + height - actionHeight - actionBottomInset;
 
   gsap.set(portfolioCard, {
     position: "fixed",
@@ -108,12 +76,40 @@ function alignIntroLayers() {
     width: width + 6,
     height: height + 6,
   });
-  gsap.set(introHint, {
+  gsap.set(introOpen, {
     left: left + width / 2,
-    top: Math.min(window.innerHeight - 34, top + height + 14),
+    top: actionTop,
+    width: Math.max(112, Math.min(178, width - 32)),
+    minHeight: actionHeight,
   });
-  introHandLeft.style.clipPath = makeClipPath(introAsset.leftHand, layout);
-  introHandRight.style.clipPath = makeClipPath(introAsset.rightHand, layout);
+}
+
+function playIntroEntrance() {
+  introEntranceTimeline?.kill();
+  const durationScale = prefersReducedMotion ? 0.05 : 1;
+  introOpen.disabled = true;
+  portfolioCard.classList.add("is-offered");
+  introScene.style.setProperty("--scene-x", "0");
+  introScene.style.setProperty("--scene-y", "0");
+
+  gsap.set(introScene, { autoAlpha: 0 });
+  gsap.set(introCharacter, { autoAlpha: 0, y: 4, scale: 1.002 });
+  gsap.set(portfolioCard, { autoAlpha: 0, y: 3, scale: 0.97 });
+  gsap.set(introOpen, { autoAlpha: 0, y: 5 });
+
+  introEntranceTimeline = gsap.timeline({ defaults: { ease: "power2.out" } });
+  introEntranceTimeline
+    .to(introScene, { autoAlpha: 1, duration: 0.34 * durationScale }, 0)
+    .to(
+      introCharacter,
+      { autoAlpha: 1, y: 0, scale: 1, duration: 0.38 * durationScale },
+      0.1 * durationScale,
+    )
+    .to(portfolioCard, { autoAlpha: 1, y: 0, scale: 1, duration: 0.42 * durationScale }, 0.27 * durationScale)
+    .to(introOpen, { autoAlpha: 1, y: 0, duration: 0.3 * durationScale }, 0.4 * durationScale)
+    .call(() => {
+      introOpen.disabled = false;
+    });
 }
 
 function readIntroSeen() {
@@ -148,12 +144,13 @@ function finishIntro() {
 
 function resetIntro() {
   introTimeline?.kill();
+  introEntranceTimeline?.kill();
   introPlaying = false;
   window.scrollTo({ top: 0, behavior: "auto" });
   portfolioIntro.hidden = false;
   document.body.classList.remove("intro-complete");
   document.body.classList.add("intro-active", "on-light-hero");
-  portfolioCard.disabled = false;
+  introOpen.disabled = false;
   introSkip.disabled = false;
   introHero?.setAttribute("aria-hidden", "true");
   portfolioName.classList.remove("is-hero-name");
@@ -166,11 +163,11 @@ function resetIntro() {
   gsap.set(
     [
       portfolioIntro,
+      introScene,
       portfolioCard,
+      introOpen,
       introCharacter,
-      ...introHands,
       paperGhostMask,
-      introHint,
       introCursor,
       introHero,
       portfolioName,
@@ -185,14 +182,15 @@ function resetIntro() {
   portfolioCard.classList.remove("is-offered");
   requestAnimationFrame(() => {
     alignIntroLayers();
-    portfolioCard.classList.add("is-offered");
+    playIntroEntrance();
   });
 }
 
 function playIntro({ skip = false } = {}) {
   if (introPlaying || portfolioIntro.hidden) return;
+  if (introEntranceTimeline?.isActive()) introEntranceTimeline.progress(1);
   introPlaying = true;
-  portfolioCard.disabled = true;
+  introOpen.disabled = true;
   introSkip.disabled = true;
 
   const rect = portfolioCard.getBoundingClientRect();
@@ -240,9 +238,20 @@ function playIntro({ skip = false } = {}) {
     .to(portfolioCard, { scale: 0.98, duration: at(0.06), ease: "power2.out" }, 0)
     .to(portfolioCard, { scale: 1.02, duration: at(0.06), ease: "power2.inOut" }, at(0.06))
     .to(introCursor, { autoAlpha: 0, duration: at(0.1), ease: "power1.out" }, at(0.1))
-    .to(introHint, { autoAlpha: 0, duration: at(0.14), ease: "power1.out" }, 0)
+    .to(introOpen, { autoAlpha: 0, duration: at(0.14), ease: "power1.out" }, 0)
+    .to(
+      portfolioCard,
+      {
+        backgroundColor: "#fffdf7",
+        borderColor: "rgba(24, 25, 25, 0.12)",
+        boxShadow: "0 24px 55px rgba(55, 49, 37, 0.17), 0 5px 14px rgba(55, 49, 37, 0.09)",
+        duration: at(0.12),
+        ease: "power1.out",
+      },
+      0,
+    )
+    .to(introScene, { autoAlpha: 0, duration: at(0.45), ease: "power2.inOut" }, at(0.12))
     .to(paperGhostMask, { autoAlpha: 1, duration: at(0.14), ease: "power1.out" }, at(0.1))
-    .to(introHands, { autoAlpha: 0, duration: at(0.15), ease: "power1.out" }, at(0.1))
     .to(
       portfolioCard,
       {
@@ -348,7 +357,7 @@ if (shouldShowIntro) {
   document.body.classList.add("intro-active");
   requestAnimationFrame(() => {
     alignIntroLayers();
-    portfolioCard?.classList.add("is-offered");
+    playIntroEntrance();
   });
 } else {
   portfolioIntro.hidden = true;
@@ -356,27 +365,56 @@ if (shouldShowIntro) {
   document.body.classList.add("intro-complete");
 }
 
-portfolioCard?.addEventListener("click", () => playIntro());
+introOpen?.addEventListener("click", () => playIntro());
 introSkip?.addEventListener("click", () => playIntro({ skip: true }));
 replayIntro?.addEventListener("click", resetIntro);
-portfolioCard?.addEventListener("pointerenter", () => {
-  if (introPlaying) return;
-  if (!isMobile) introCursor?.classList.add("is-visible");
-  gsap.to(portfolioCard, { scale: 1.03, duration: 0.22, ease: "power2.out" });
-});
-portfolioCard?.addEventListener("pointerleave", () => {
-  if (introPlaying) return;
-  hideIntroCursor();
-  gsap.to(portfolioCard, { scale: 1, duration: 0.22, ease: "power2.out" });
-});
 window.addEventListener("pointermove", (event) => {
   if (!introCursor) return;
   introCursor.style.transform = `translate3d(${event.clientX - 29}px, ${event.clientY - 29}px, 0)`;
+  if (portfolioIntro.hidden || introPlaying || isMobile) return;
+  const sceneX = (event.clientX / window.innerWidth) * 2 - 1;
+  const sceneY = (event.clientY / window.innerHeight) * 2 - 1;
+  introScene.style.setProperty("--scene-x", sceneX.toFixed(3));
+  introScene.style.setProperty("--scene-y", sceneY.toFixed(3));
 });
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !portfolioIntro.hidden) playIntro({ skip: true });
 });
 window.addEventListener("resize", alignIntroLayers);
+
+document.querySelector("[data-scroll-to-works]")?.addEventListener("click", (event) => {
+  event.preventDefault();
+  document.querySelector("#works")?.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
+});
+
+const revealItems = [...document.querySelectorAll("[data-reveal]")];
+if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+} else {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.16, rootMargin: "0px 0px -7%" },
+  );
+  revealItems.forEach((item) => revealObserver.observe(item));
+}
+
+const siteHeader = document.querySelector(".site-header");
+function updateHeaderState() {
+  siteHeader?.classList.toggle("is-scrolled", window.scrollY > 24);
+}
+window.addEventListener("scroll", updateHeaderState, { passive: true });
+updateHeaderState();
+requestAnimationFrame(() => document.body.classList.add("is-ready"));
+
+// The previous WebGL world remains below for reference but is intentionally disabled.
+// The current portfolio uses a lighter, card-based reading experience.
+if (false) {
 
 const stage = document.querySelector("#webgl-stage");
 const chapters = [...document.querySelectorAll(".story-chapter")];
@@ -962,3 +1000,4 @@ function render() {
 
 render();
 requestAnimationFrame(() => document.body.classList.add("is-ready"));
+}

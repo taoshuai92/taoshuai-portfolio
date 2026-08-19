@@ -3,30 +3,33 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#090a0d" />
+    <meta name="theme-color" content="#f7f4ed" />
     <title>大喜 | 产品体验设计师</title>
     <meta
       name="description"
       content="大喜的互动设计作品集，展示 AI Agent 探索、企业级系统设计与 C 端产品设计经历。"
     />
-    <link rel="preload" as="image" href="./assets/images/portfolio-intro-woman.jpg" />
+    <link rel="preload" as="image" href="./assets/images/intro-designer-studio-scene-v7.jpg" />
+    <link rel="preload" as="image" href="./assets/images/portfolio-intro-woman-cutout-v1.png" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body class="intro-pending on-light-hero">
     <div class="portfolio-intro" data-portfolio-intro aria-label="作品集开场">
       <button class="intro-skip" type="button" data-intro-skip>Skip intro</button>
 
+      <div class="intro-studio-scene" data-intro-scene aria-hidden="true">
+        <img src="./assets/images/intro-designer-studio-scene-v7.jpg" alt="" />
+      </div>
+
       <div class="intro-character" aria-hidden="true">
-        <img src="./assets/images/portfolio-intro-woman.jpg" alt="" />
+        <img src="./assets/images/portfolio-intro-woman-cutout-v1.png" alt="" />
       </div>
       <div class="intro-paper-ghost-mask" data-paper-ghost-mask aria-hidden="true"></div>
 
-      <button
+      <div
         class="portfolio-card"
-        type="button"
         data-portfolio-card
-        aria-label="接过大喜递来的作品集并打开网站"
-        aria-describedby="intro-handoff-hint"
+        aria-hidden="true"
       >
         <span class="portfolio-name" data-portfolio-name>TAO<br class="paper-name-break" />SHUAI</span>
         <span class="portfolio-edition" data-portfolio-edition>PORTFOLIO</span>
@@ -39,12 +42,11 @@
           <span class="intro-hero-title">Hello!<br />我是大喜。</span>
           <span class="intro-hero-path">C-End → Enterprise SaaS → AI Agent</span>
         </span>
+      </div>
+
+      <button class="intro-open-action" type="button" data-intro-open>
+        <span>打开作品集</span><b aria-hidden="true">↗</b>
       </button>
-
-      <div class="intro-hand-layer intro-hand-left" data-intro-hand-left aria-hidden="true"></div>
-      <div class="intro-hand-layer intro-hand-right" data-intro-hand-right aria-hidden="true"></div>
-
-      <p class="intro-handoff-hint" id="intro-handoff-hint">给你看看我的作品 :)</p>
       <span class="intro-open-cursor" aria-hidden="true">OPEN</span>
     </div>
 
@@ -52,111 +54,134 @@
       Replay intro
     </button>
 
-    <div id="webgl-stage" aria-hidden="true"></div>
-    <div class="ambient-grid" aria-hidden="true"></div>
-    <div class="character-layer">
-      <div class="character-float">
-        <img
-          src="./assets/concepts/daxi-character-approved-reference.jpg"
-          alt="手持触控笔和平板、悬浮坐姿的大喜 3D 形象"
-        />
-      </div>
-    </div>
-
     <header class="site-header">
       <a class="brand" href="#intro" aria-label="返回首页">
-        <span class="brand-mark">DX</span>
-        <span>大喜的设计异想世界</span>
+        <span class="brand-mark">TS</span>
+        <span>TAO SHUAI</span>
       </a>
       <nav class="site-nav" aria-label="首页导航">
-        <a href="#works">作品</a>
-        <a href="./assets/resume/resume.pdf" download="resume.pdf">简历</a>
-        <a href="#contact">联系</a>
+        <a href="#works">WORK</a>
+        <a href="./assets/resume/resume.pdf" download="resume.pdf">CV</a>
+        <a href="#contact">CONTACT</a>
       </nav>
     </header>
 
-    <aside class="chapter-rail" aria-label="章节进度">
-      <span class="rail-index">01</span>
-      <span class="rail-line"><i></i></span>
-      <span class="rail-total">05</span>
-    </aside>
-
     <main id="story">
-      <section id="intro" class="story-chapter chapter-intro" data-chapter="0">
-        <div class="chapter-copy intro-copy">
+      <section id="intro" class="story-chapter chapter-intro simple-hero" data-chapter="0">
+        <div class="chapter-copy intro-copy simple-hero-copy" data-reveal>
           <p class="hero-identity">TAO SHUAI</p>
           <p class="eyebrow"><span>AI Product Experience Designer</span><b>11 Years Experience</b></p>
-          <h1>Hello!<br />我是<span>大喜。</span></h1>
-          <p class="lead">C-End → Enterprise SaaS → AI Agent</p>
+          <h1>
+            <span class="hero-title-line">Hello!</span>
+            <span class="hero-title-line">我是大喜。</span>
+          </h1>
+          <p class="lead hero-lead">
+            <span class="hero-lead-role">AI 产品体验设计师</span>
+            <span>专注智能硬件与复杂系统，将 AI 能力转化为可理解、可控、可用的产品体验。</span>
+          </p>
           <div class="hero-actions">
             <a class="action action-primary" href="#works" data-scroll-to-works>
-              <span>SELECTED WORK</span><b aria-hidden="true">↓</b>
+              <span>VIEW MY WORK</span><b aria-hidden="true">↓</b>
             </a>
             <a class="action action-secondary" href="./assets/resume/resume.pdf" download="resume.pdf">
-              <span>下载简历</span><b aria-hidden="true">↓</b>
+              <span>DOWNLOAD CV</span><b aria-hidden="true">↓</b>
             </a>
           </div>
         </div>
-        <p class="scene-caption">DAXI'S NIGHT STUDIO <span>2026</span></p>
+        <div class="hero-visual" data-reveal>
+          <div class="hero-visual-meta">
+            <span>2015 → NOW</span>
+            <p>C-END / ENTERPRISE SaaS / AI AGENT</p>
+          </div>
+          <img class="hero-visual-star" src="./assets/images/doodle-star.png" alt="" aria-hidden="true" />
+          <img class="hero-character-illustration" src="./assets/images/hero-character-pose-v2.png" alt="拿着作品板向你打招呼的大喜人物插画" />
+          <p class="hero-visual-caption">A DESIGNER WHO<br />MAKES COMPLEX THINGS CLEAR.</p>
+        </div>
       </section>
 
-      <section id="works" class="story-chapter chapter-ai" data-chapter="1">
-        <div class="chapter-copy project-copy">
-          <p class="project-number">01 / 03</p>
-          <p class="eyebrow"><span>Current Exploration</span><b>2024 — 至今</b></p>
-          <h2>AI Agent<br /><span>探索实验室</span></h2>
-          <p class="lead">从感知、理解到内容输出，探索 AI Agent 如何成为更自然的产品伙伴。</p>
-          <a class="project-action" href="./pages/ai-agent.html">
-            进入实验室 <span aria-hidden="true">→</span>
+      <section id="works" class="work-section">
+        <div class="section-heading" data-reveal>
+          <p class="section-kicker">SELECTED WORK / 03</p>
+          <h2>三个阶段，<br />一条持续向前的路径。</h2>
+          <p>从理解人，到理解复杂系统，再到重新设计人与 AI 的协作方式。</p>
+        </div>
+
+        <div class="stage-grid">
+          <a class="stage-card stage-card-ai" href="./pages/ai-agent.html" data-reveal>
+            <span class="stage-number">01</span>
+            <span class="stage-period">2024 — NOW</span>
+            <figure class="stage-graphic stage-graphic-agent" aria-hidden="true">
+              <img src="./assets/images/stage-ai-agent-robot-glass-v2.webp" alt="" />
+            </figure>
+            <div>
+              <p class="stage-label">CURRENT EXPLORATION</p>
+              <h3>AI Agent<br />产品体验</h3>
+              <p>探索感知、理解与行动如何组成更自然的 AI 产品体验。</p>
+            </div>
+            <span class="stage-enter">进入作品 <b aria-hidden="true">↗</b></span>
+          </a>
+
+          <a class="stage-card stage-card-enterprise" href="https://zpj.meiye.art/p/S7W75Md71615DCE1" target="_blank" rel="noopener noreferrer" data-reveal>
+            <span class="stage-number">02</span>
+            <span class="stage-period">2021 — 2024</span>
+            <figure class="stage-graphic stage-graphic-system" aria-hidden="true">
+              <img src="./assets/images/stage-enterprise-saas-glass-v1.webp" alt="" />
+            </figure>
+            <div>
+              <p class="stage-label">COMPLEXITY TO CLARITY</p>
+              <h3>企业级<br />SaaS 系统</h3>
+              <p>把业务、角色和流程组织成清晰、可靠且可持续演进的系统。</p>
+            </div>
+            <span class="stage-enter">进入作品 <b aria-hidden="true">↗</b></span>
+          </a>
+
+          <a class="stage-card stage-card-consumer" href="https://zpj.meiye.art/p/J85M2d030217A8B6" target="_blank" rel="noopener noreferrer" data-reveal>
+            <span class="stage-number">03</span>
+            <span class="stage-period">2015 — 2021</span>
+            <figure class="stage-graphic stage-graphic-people" aria-hidden="true">
+              <img src="./assets/images/stage-consumer-experience-glass-v1.webp" alt="" />
+            </figure>
+            <div>
+              <p class="stage-label">PEOPLE &amp; EMOTION</p>
+              <h3>C 端产品<br />与用户体验</h3>
+              <p>从真实的人、情绪与行为出发，让每一次操作更轻松、更有温度。</p>
+            </div>
+            <span class="stage-enter">进入作品 <b aria-hidden="true">↗</b></span>
           </a>
         </div>
-        <a class="scene-hit scene-hit-ai" href="./pages/ai-agent.html" aria-label="进入 AI Agent 探索页面"></a>
       </section>
 
-      <section id="enterprise" class="story-chapter chapter-enterprise" data-chapter="2">
-        <div class="chapter-copy project-copy copy-right">
-          <p class="project-number">02 / 03</p>
-          <p class="eyebrow"><span>Complexity to Clarity</span><b>2021 — 2024</b></p>
-          <h2>企业级<br /><span>系统城市</span></h2>
-          <p class="lead">把复杂业务、角色和流程组织成清晰、可靠、可持续演进的系统体验。</p>
-          <a class="project-action" href="https://works.meiye.art/S7W75Md71615DCE1">
-            进入系统城市 <span aria-hidden="true">→</span>
-          </a>
-        </div>
-        <a class="scene-hit scene-hit-enterprise" href="https://works.meiye.art/S7W75Md71615DCE1" aria-label="进入企业级系统设计页面"></a>
-      </section>
-
-      <section id="consumer" class="story-chapter chapter-consumer" data-chapter="3">
-        <div class="chapter-copy project-copy">
-          <p class="project-number">03 / 03</p>
-          <p class="eyebrow"><span>People &amp; Emotion</span><b>2015 — 2021</b></p>
-          <h2>C 端产品<br /><span>用户星球</span></h2>
-          <p class="lead">理解真实的人、情绪和行为，让每一次点击都更轻松、更有温度。</p>
-          <a class="project-action" href="https://works.meiye.art/J85M2d030217A8B6">
-            登陆用户星球 <span aria-hidden="true">→</span>
-          </a>
-        </div>
-        <a class="scene-hit scene-hit-consumer" href="https://works.meiye.art/J85M2d030217A8B6" aria-label="进入 C 端产品设计页面"></a>
-      </section>
-
-      <section id="contact" class="story-chapter chapter-contact" data-chapter="4">
-        <div class="chapter-copy contact-copy">
-          <p class="eyebrow"><span>Back to the Studio</span><b>Let's Talk</b></p>
-          <h2>一起做点<br /><span>有意义的事</span></h2>
-          <div class="contact-links">
-            <a href="tel:15727975287"><small>PHONE</small><span>157 2797 5287</span></a>
-            <a href="mailto:951578611@qq.com"><small>EMAIL</small><span>951578611@qq.com</span></a>
+      <section id="contact" class="contact-section" data-reveal>
+        <div class="contact-copy-new">
+          <p class="section-kicker">LET'S TALK</p>
+          <h2>复杂的事，<br /><span>一起做清楚。</span></h2>
+          <div class="contact-actions">
+            <div class="contact-detail">
+              <span>EMAIL</span>
+              <a href="mailto:951578611@qq.com">951578611@qq.com</a>
+            </div>
+            <div class="contact-detail">
+              <span>PHONE</span>
+              <a href="tel:15727975287">157 2797 5287</a>
+            </div>
+            <a class="contact-download" href="./assets/resume/resume.pdf" download="resume.pdf">DOWNLOAD CV <span aria-hidden="true">↓</span></a>
           </div>
         </div>
-        <p class="copyright">© 2026 DAXI DESIGN WORLD</p>
+        <div class="contact-illustration" aria-hidden="true">
+          <div class="contact-visual-note">
+            <span class="contact-note-index">CONTACT</span>
+            <strong><span>LET'S</span><em>CONNECT</em></strong>
+            <span class="contact-note-symbols"><i>＋</i><b></b><em>↗</em></span>
+          </div>
+          <img src="./assets/images/contact-character-pose-v2.png" alt="" />
+        </div>
+        <div class="contact-footer">
+          <span>大喜 / TAO SHUAI</span>
+          <span>AI PRODUCT EXPERIENCE DESIGNER</span>
+          <span>© 2026</span>
+        </div>
       </section>
     </main>
-
-    <button class="sound-toggle" type="button" aria-label="开启环境音" aria-pressed="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </button>
 
     <script type="module" src="./script.js"></script>
   </body>

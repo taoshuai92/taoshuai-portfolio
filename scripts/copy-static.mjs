@@ -15,6 +15,7 @@ cpSync("pages", "dist/client/pages", { recursive: true });
 
 const staticFiles = [
   "assets/resume/resume.pdf",
+  "assets/images/ai-agent-slices/ai-agent-section-01.jpg",
   "assets/images/ai-agent-slices/ai-agent-section-01-optimized.jpg",
   "assets/images/ai-agent-slices/ai-agent-section-02-clean.png",
   "assets/images/ai-agent-slices/ai-agent-section-03.png",
@@ -26,6 +27,15 @@ const staticFiles = [
   "assets/images/ai-agent-states/understanding.webp",
   "assets/images/ai-agent-states/voice-receiving.webp",
   "assets/images/ai-agent-states/waiting.webp",
+  "assets/images/health-module/health-suite-home.jpg",
+  "assets/images/health-module/health-inspection-report.jpg",
+  "assets/images/health-module/full-scene-monitoring.jpg",
+  "assets/images/health-module/activity-monitoring.png",
+  "assets/images/health-module/sleep-monitoring.png",
+  "assets/images/health-module/sedentary-alert.png",
+  "assets/images/health-module/fall-emergency.png",
+  "assets/images/health-module/breath-heart-emergency.png",
+  "assets/videos/active-perception-inspection.webm",
   "assets/videos/active-perception-inspection-mobile.webm",
   "assets/videos/opening-no-text.webm",
   "assets/videos/wake-interaction.webm",
