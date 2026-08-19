@@ -16,6 +16,7 @@ cpSync("pages", "dist/client/pages", { recursive: true });
 const staticFiles = [
   "assets/resume/resume.pdf",
   "assets/images/ai-agent-slices/ai-agent-section-01.jpg",
+  "assets/images/ai-agent-slices/ai-agent-section-01-role-updated.png",
   "assets/images/ai-agent-slices/ai-agent-section-01-optimized.jpg",
   "assets/images/ai-agent-slices/ai-agent-section-02-clean.png",
   "assets/images/ai-agent-slices/ai-agent-section-03.png",
