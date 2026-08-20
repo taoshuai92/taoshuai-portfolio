@@ -1,0 +1,1073 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Agent 探索 | 大喜</title>
+    <meta
+      name="description"
+      content="HomeClaw AI Agent 探索作品详情，展示桌面框架、主动感知系统与智能服务体验设计。"
+    />
+    <link rel="stylesheet" href="../page.css?v=20260820-5" />
+  </head>
+  <body class="ai-agent-figma-page">
+    <main class="agent-modular-page" aria-label="AI Agent 探索详情页">
+      <canvas class="agent-starfield" aria-hidden="true"></canvas>
+
+      <section class="agent-slice agent-opening-section agent-reveal" aria-label="HomeClaw AI Agent 作品介绍">
+        <img
+          src="../assets/images/ai-agent-slices/ai-agent-opening-top.webp"
+          width="1920"
+          height="3470"
+          alt="HomeClaw AI Agent 作品介绍、我的角色与项目背景三阶段演进"
+        />
+        <video
+          class="agent-opening-video"
+          src="../assets/videos/opening-no-text.webm"
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="metadata"
+          aria-label="开篇视频"
+        ></video>
+      </section>
+
+      <section id="core-challenges" class="agent-html-section agent-challenge-section agent-reveal" aria-label="核心挑战">
+        <header class="agent-challenge-overview">
+          <h2>核心挑战</h2>
+          <p class="agent-challenge-en">Core Challenges</p>
+          <p>
+            随着 AI 能力从“理解指令”向“自主规划与执行”演进，云唔精灵产品目标也从提升交互效率，
+            转向构建具备主动服务能力的 Agent 系统——<b>HomeClaw</b>。
+          </p>
+          <p>但在 2.0 阶段，虽然产品已经具备 AI Agent 对话能力，仍存在三个关键问题：</p>
+        </header>
+
+        <ol class="agent-challenge-list">
+          <li class="agent-challenge-card agent-challenge-01">
+            <div class="agent-challenge-index" aria-hidden="true">
+              <span>01</span>
+              <b>Challenge</b>
+            </div>
+            <div class="agent-challenge-body">
+              <h3>如何让设备从“响应用户需求”转变为“主动发现并满足用户需求”？</h3>
+              <p>2.0 阶段通过大模型能力增强了设备的理解能力，用户可以通过自然语言完成更复杂的任务。</p>
+              <p class="agent-challenge-lead">但交互模式本质仍未改变：</p>
+              <div class="agent-challenge-flow">
+                <span>用户提出需求</span>
+                <i aria-hidden="true"></i>
+                <span>AI 理解请求</span>
+                <i aria-hidden="true"></i>
+                <span>系统执行反馈</span>
+              </div>
+              <p class="agent-challenge-note">
+                设备依然需要用户主动唤醒和输入，无法基于环境、时间和用户状态主动提供服务。
+              </p>
+            </div>
+          </li>
+          <li class="agent-challenge-card agent-challenge-02">
+            <div class="agent-challenge-index" aria-hidden="true">
+              <span>02</span>
+              <b>Challenge</b>
+            </div>
+            <div class="agent-challenge-body">
+              <h3>如何让 AI 从一次性的工具，变成能够持续学习用户的智能伙伴？</h3>
+              <p>对话能力局限于单次会话，用户的偏好、习惯和历史行为无法沉淀。</p>
+              <p class="agent-challenge-lead">这就导致：</p>
+              <div class="agent-challenge-flow agent-challenge-flow-plain">
+                <span>每次交互需要重新建立上下文</span>
+                <span>长期使用价值难以形成</span>
+                <span>用户无法对设备产生依赖</span>
+              </div>
+              <p class="agent-challenge-note">
+                缺乏跨会话记忆，无法形成连续体验，无法形成“设备理解我”的认知。
+              </p>
+            </div>
+          </li>
+          <li class="agent-challenge-card agent-challenge-03">
+            <div class="agent-challenge-index" aria-hidden="true">
+              <span>03</span>
+              <b>Challenge</b>
+            </div>
+            <div class="agent-challenge-body">
+              <h3>如何从“功能入口驱动”转变为“用户意图驱动”的 Agent 交互模式？</h3>
+              <p>在传统智能音箱和 2.0 阶段，产品主要通过功能入口向用户展示能力。</p>
+              <p class="agent-challenge-lead">用户需要知道：</p>
+              <div class="agent-challenge-flow agent-challenge-flow-plain">
+                <span>有哪些功能</span>
+                <span>功能在哪里</span>
+                <span>应该如何操作</span>
+              </div>
+              <p class="agent-challenge-note">
+                但随着 AI 能力增强，用户需求已经从“调用功能”转向“表达目标”。
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="agent-slice agent-architecture-slice agent-reveal" aria-label="HomeClaw Agent 体验架构">
+        <img
+          src="../assets/images/ai-agent-slices/ai-agent-opening-architecture.webp"
+          width="1920"
+          height="1550"
+          alt="HomeClaw Agent 体验架构：用户交互层、感知理解执行记忆能力层、能力与服务层、数据基础层"
+          loading="lazy"
+        />
+      </section>
+
+      <section id="desktop-framework" class="agent-html-section agent-reveal" aria-label="桌面框架关键设计决策">
+        <header class="agent-decision-overview">
+          <p class="agent-html-kicker">关键设计决策</p>
+          <h2>Core Design Decisions</h2>
+          <p>
+            基于前期识别出的三个核心挑战，我没有继续叠加功能，而是重新梳理人与设备的协作方式：
+            用户如何进入、Agent 如何理解，以及结果如何持续反馈。
+          </p>
+        </header>
+
+        <div class="agent-chapter-heading">
+          <div class="agent-chapter-index">
+            <span>01</span>
+            <h2>桌面框架</h2>
+          </div>
+          <div class="agent-chapter-copy">
+            <p class="agent-html-kicker">从卡片式到“零级入口”</p>
+            <h3>让用户表达目标，而不是先理解产品功能</h3>
+            <p>
+              当 AI 从功能执行者转向 Agent，传统的“打开设备 → 浏览功能 → 选择服务 → 执行任务”开始成为负担。
+              用户需要记住产品有什么能力、入口在哪里，才能完成一次交互。
+            </p>
+            <p class="agent-html-emphasis">设计方向：把桌面从功能目录，转变为用户与 Agent 协作的起点。</p>
+          </div>
+        </div>
+
+        <div class="agent-desktop-evolution">
+          <div class="agent-screen-pair" aria-label="1.0 与 2.0 桌面对比">
+            <figure class="agent-product-shot">
+              <img
+                src="../assets/images/ai-agent-html/desktop-1-0.webp"
+                width="1668"
+                height="1048"
+                alt="HomeClaw 1.0 功能型桌面"
+                loading="lazy"
+              />
+              <figcaption><span>1.0</span>产品预设内容与功能入口</figcaption>
+            </figure>
+            <figure class="agent-product-shot">
+              <img
+                src="../assets/images/ai-agent-html/desktop-2-0.webp"
+                width="1668"
+                height="1048"
+                alt="HomeClaw 2.0 个性化桌面"
+                loading="lazy"
+              />
+              <figcaption><span>2.0</span>用户按需要组织桌面</figcaption>
+            </figure>
+          </div>
+
+          <div class="agent-evolution-decisions">
+            <article>
+              <span>01</span>
+              <div>
+                <h4>从内容推荐，到状态与服务</h4>
+                <p>减少“系统想展示什么”，优先呈现用户此刻需要了解和处理的事情。</p>
+                <strong>桌面首先回答：我现在需要关注什么？</strong>
+              </div>
+            </article>
+            <article>
+              <span>02</span>
+              <div>
+                <h4>从固定桌面，到个性化桌面</h4>
+                <p>把能力的组织权交给用户，让高频服务留在最熟悉的位置。</p>
+                <strong>产品提供能力，用户决定自己的首页。</strong>
+              </div>
+            </article>
+            <article>
+              <span>03</span>
+              <div>
+                <h4>从功能入口，到场景入口</h4>
+                <p>弱化“打开某个 App”，转向“家庭健康、联系家人、生活提醒”等真实目标。</p>
+                <strong>用户不需要知道哪项功能负责完成任务。</strong>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="agent-mode-comparison">
+          <div class="agent-mode-label">
+            <p class="agent-html-kicker">交互模型</p>
+            <h3>从“用户找功能”到“Agent 理解意图”</h3>
+            <p>两种模式的区别不在步骤多少，而在认知负担由谁承担。</p>
+          </div>
+          <div class="agent-mode-row agent-mode-row-legacy">
+            <div class="agent-mode-title"><b>传统模式</b><span>功能导向</span></div>
+            <ol>
+              <li><b>明确任务</b><span>用户先判断自己要什么</span></li>
+              <li><b>寻找入口</b><span>在设备中定位对应功能</span></li>
+              <li><b>调用服务</b><span>选择并启动功能</span></li>
+              <li><b>获得结果</b><span>完成任务后离开</span></li>
+            </ol>
+          </div>
+          <div class="agent-mode-row agent-mode-row-agent">
+            <div class="agent-mode-title"><b>Agent 模式</b><span>意图驱动</span></div>
+            <ol>
+              <li><b>表达目标</b><span>用户用自然语言描述需要</span></li>
+              <li><b>理解上下文</b><span>Agent 判断真实意图</span></li>
+              <li><b>调度能力</b><span>自主规划并执行</span></li>
+              <li><b>主动反馈</b><span>说明结果与下一步</span></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="agent-zero-entry">
+          <header class="agent-zero-entry-header">
+            <p class="agent-zero-entry-title">“零级入口”</p>
+            <p class="agent-zero-entry-subtitle">从功能调用到意图表达</p>
+          </header>
+          <div class="agent-zero-entry-grid">
+            <div class="agent-stage-rail" aria-label="桌面能力演进阶段">
+              <div><span>1.0阶段</span><p>告诉用户“我有什么”</p></div>
+              <i aria-hidden="true"></i>
+              <div><span>2.0阶段</span><p>用户决定“我要什么”</p></div>
+              <i aria-hidden="true"></i>
+              <div class="is-current"><span>3.0阶段</span><p>Home Claw 理解“用户需要什么”</p></div>
+            </div>
+            <figure class="agent-product-shot agent-zero-entry-shot">
+              <img
+                src="../assets/images/ai-agent-html/agent-zero-entry.webp?v=20260820-7"
+                width="884"
+                height="560"
+                alt="HomeClaw Agent 零级入口桌面"
+                loading="lazy"
+              />
+            </figure>
+            <div class="agent-zero-entry-copy">
+              <h3>桌面不再是功能展示区域，<br />而成为 <span class="agent-html-emphasis">Agent</span> 存在的空间。</h3>
+              <p>
+                随着 AI Agent 能力成熟，设备不再需要用户提前理解和管理所有能力。
+              </p>
+              <p>
+                因此桌面从：“功能展示与管理空间”
+              </p>
+              <p>
+                转变为：用户与 Agent 协作空间。
+              </p>
+              <p>用户只需要表达目标：</p>
+              <ul class="agent-zero-entry-quotes">
+                <li>“帮我安排明天行程”</li>
+                <li>“最近睡眠不好”</li>
+                <li>“提醒我联系家人”</li>
+              </ul>
+              <p>Agent 根据上下文理解需求，并自主调度对应能力。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="active-perception" class="agent-html-section agent-perception-section agent-reveal" aria-label="主动感知系统">
+        <div class="agent-chapter-heading">
+          <div class="agent-chapter-index">
+            <span>02</span>
+            <h2>主动感知系统</h2>
+          </div>
+          <div class="agent-chapter-copy">
+            <p class="agent-html-kicker">从“人找服务”到“服务找人”</p>
+            <h3>设备能否在用户没有主动输入时，理解用户状态并提供合适服务</h3>
+            <p>
+              在探索 Agent 产品形态时，我发现单纯提升 AI 的回答能力，并不能解决智能设备长期使用的问题。
+            </p>
+            <p class="agent-html-emphasis">真正要解决的，是用户开口之前的那段时间。</p>
+          </div>
+        </div>
+
+        <div class="agent-perception-limit">
+          <div class="agent-limit-copy">
+            <p class="agent-limit-lead">在传统智能助手模式下，系统的运行逻辑是：</p>
+            <div class="agent-limit-flow" aria-label="传统智能助手运行逻辑">
+              <span>用户输入</span>
+              <i aria-hidden="true"></i>
+              <span>AI 理解</span>
+              <i aria-hidden="true"></i>
+              <span>返回结果</span>
+            </div>
+            <p class="agent-limit-lead">AI 的能力被限制在用户主动发起的瞬间，设备仍然需要：</p>
+            <ul class="agent-limit-list">
+              <li>用户主动唤醒</li>
+              <li>用户明确提出需求</li>
+              <li>用户知道自己需要什么服务</li>
+            </ul>
+            <p class="agent-limit-note">但在真实生活场景中，很多需求并不会被用户主动提出。</p>
+          </div>
+          <div class="agent-chat-mock" aria-label="传统一问一答式交互示例">
+            <p class="agent-chat-bubble agent-chat-user">今天天气怎么样？</p>
+            <div class="agent-chat-bubble agent-chat-ai">
+              <b>杭州余杭今日（7 月 8 日）天气</b>
+              <p>全天概况：多云，气温 27℃~34℃，空气质量优，午后局部短时小雨，体感闷热。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="agent-perception-value">
+          <p>我认为 Agent 的核心价值不是：“有问必答”</p>
+          <p class="agent-html-emphasis">而是：“在合适的时间提供合适的帮助。”</p>
+        </div>
+
+        <div class="agent-perception-system">
+          <figure class="agent-product-shot">
+            <img
+              src="../assets/images/ai-agent-html/perception-inspection-settings.webp"
+              width="990"
+              height="606"
+              alt="主动感知巡检设置界面：巡检范围、巡检设置与通知设置"
+              loading="lazy"
+            />
+            <figcaption><span>巡检</span>用户决定 Agent 关注什么、何时执行</figcaption>
+          </figure>
+          <div class="agent-service-chain">
+            <p class="agent-service-chain-lead">构建基于硬件感知和 Agent 调度机制的主动服务系统。</p>
+            <ol>
+              <li>持续获取用户状态</li>
+              <li>判断潜在需求</li>
+              <li>主动生成服务</li>
+              <li>根据风险等级决定干预方式</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="agent-proactive-levels">
+          <div class="agent-levels-intro">
+            <p class="agent-html-kicker">设计决策：主动性的边界</p>
+            <h3>主动服务最大的挑战不是“如何主动”，而是什么情况下应该主动</h3>
+            <p>过度主动，用户觉得打扰；过度被动，Agent 失去价值。因此设计三层主动等级：</p>
+          </div>
+          <div class="agent-level-grid">
+            <article class="agent-level-l1">
+              <span>L1 日常关怀</span>
+              <h4>晨间问候、信息推送</h4>
+              <dl>
+                <div><dt>行为</dt><dd>主动反馈 + 服务协议</dd></div>
+                <div><dt>策略</dt><dd>自动触发 + 低打扰</dd></div>
+              </dl>
+            </article>
+            <article class="agent-level-l2">
+              <span>L2 场景自动化</span>
+              <h4>环境调节、设备控制</h4>
+              <dl>
+                <div><dt>行为</dt><dd>自动执行 + 进度反馈</dd></div>
+                <div><dt>策略</dt><dd>用户授权</dd></div>
+              </dl>
+            </article>
+            <article class="agent-level-l3">
+              <span>L3 风险介入</span>
+              <h4>跌倒检测、健康异常</h4>
+              <dl>
+                <div><dt>行为</dt><dd>紧急呼叫 + 通知家属</dd></div>
+                <div><dt>策略</dt><dd>快速确认</dd></div>
+              </dl>
+            </article>
+          </div>
+        </div>
+
+        <div class="agent-heartbeat">
+          <figure class="agent-product-shot">
+            <img
+              src="../assets/images/ai-agent-html/perception-sleep-report.webp"
+              width="990"
+              height="650"
+              alt="Agent 主动推送的睡眠日报卡片"
+              loading="lazy"
+            />
+            <figcaption><span>L1 示例</span>每天清晨主动汇报昨夜睡眠</figcaption>
+          </figure>
+          <div class="agent-heartbeat-rule">
+            <h4>Heartbeat 巡检机制规则设计</h4>
+            <p class="agent-heartbeat-lead">每天早上主动汇报昨日睡眠情况：</p>
+            <ul>
+              <li>数据来源：毫米波雷达 API（待开发接入）</li>
+              <li>读取 <code>memory/YYYY-MM-DD.md</code> 获取昨日睡眠数据</li>
+              <li>标题末尾必须加 <code>&lt;!-- title --&gt;</code></li>
+              <li>消息内容末尾必须加 <code>&lt;!-- proactive --&gt;</code></li>
+              <li>API 接入后，通过定时任务调用毫米波雷达接口，自动将睡眠数据写入 memory 文件</li>
+            </ul>
+            <div class="agent-heartbeat-format">
+              <b>🌙 睡眠日报</b>
+              <p>💤 睡眠：[时长]，入睡时间：[时间]，醒来时间：[时间]</p>
+              <p>🫀 夜间心率：[数值范围，如 60–75 次/分]</p>
+              <p>🫁 呼吸频率：[数值，如 15–18 次/分]</p>
+              <p>💡 建议：[建议内容]</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="agent-video-section agent-video-section-filled agent-reveal" aria-label="视频区域一" data-video-slot="1">
+        <img
+          src="../assets/images/ai-agent-slices/ai-agent-video-01-placeholder.webp"
+          width="1920"
+          height="738"
+          alt="视频区域一占位"
+        />
+        <!-- 后续上传视频后，将 video src 指向 assets/videos/ 下的文件即可。 -->
+        <video
+          class="agent-video-frame"
+          src="../assets/videos/active-perception-inspection.webm"
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="metadata"
+          aria-label="视频区域一"
+        ></video>
+      </section>
+
+      <section id="agent-persona" class="agent-html-section agent-persona-section agent-reveal" aria-label="可感知的交互载体">
+        <div class="agent-chapter-heading">
+          <div class="agent-chapter-index">
+            <span>03</span>
+            <h2>可感知的<br />交互载体</h2>
+          </div>
+          <div class="agent-chapter-copy">
+            <p class="agent-html-kicker">从语音助手到智能伙伴</p>
+            <h3>让不可见的 AI 状态变得可感知</h3>
+            <p>随着 HomeClaw 从 AI Assistant 向 AI Agent 演进，设备的角色发生变化。</p>
+            <div class="agent-persona-shift">
+              <div>
+                <b>过去</b>
+                <p>语音助手只是隐藏在系统中的一个功能入口。用户通过唤醒词触发设备，完成一次性的指令交互。</p>
+              </div>
+              <div>
+                <b>现在</b>
+                <p>
+                  Agent 模式下，设备需要<strong>持续理解用户、主动反馈状态、建立长期交互关系</strong>。
+                </p>
+              </div>
+            </div>
+            <p class="agent-html-emphasis">
+              我们引入 IP 形象作为 Agent 的视觉载体，让不可见的 AI 状态变得可感知。
+            </p>
+            <div class="agent-persona-pills" aria-label="IP 形象承担的设计职责">
+              <span>状态可视化</span>
+              <span>过程反馈</span>
+              <span>情绪表达</span>
+              <span>关系建立</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="agent-state-system">
+          <div class="agent-state-system-title">
+            <h3>Agent 状态反馈体系</h3>
+            <p>
+              Agent 的交互过程包含多个不可见状态，通过 IP 动作和表情进行视觉化反馈，让用户理解当前系统状态。
+            </p>
+          </div>
+          <ul class="agent-state-grid">
+            <li>
+              <img
+                class="agent-state-figure"
+                src="../assets/images/ai-agent-states/waiting.webp"
+                alt="待机状态：IP 形象安静待命的动作"
+                loading="lazy"
+              />
+              <h4>待机状态</h4>
+              <p>保持陪伴感，同时避免过度打扰。</p>
+            </li>
+            <li>
+              <img
+                class="agent-state-figure"
+                src="../assets/images/ai-agent-states/content-output.webp"
+                alt="内容输出状态：IP 形象播报信息的动作"
+                loading="lazy"
+              />
+              <h4>内容输出状态</h4>
+              <p>通过动作反馈，让用户知道 Agent 正在进行信息播报。</p>
+            </li>
+            <li>
+              <img
+                class="agent-state-figure"
+                src="../assets/images/ai-agent-states/voice-receiving.webp"
+                alt="语音接收状态：IP 形象聆听用户输入的动作"
+                loading="lazy"
+              />
+              <h4>语音接收状态</h4>
+              <p>明确表达设备正在接收用户输入，降低等待焦虑。</p>
+            </li>
+            <li>
+              <img
+                class="agent-state-figure"
+                src="../assets/images/ai-agent-states/understanding.webp"
+                alt="理解处理中：IP 形象思考推理的动作"
+                loading="lazy"
+              />
+              <h4>理解处理中</h4>
+              <p>将 AI 的处理过程可视化，增强用户对系统状态的理解。</p>
+            </li>
+            <li>
+              <img
+                class="agent-state-figure"
+                src="../assets/images/ai-agent-states/error-feedback.webp"
+                alt="异常反馈状态：IP 形象表达出错的表情"
+                loading="lazy"
+              />
+              <h4>异常反馈状态</h4>
+              <p>通过 IP 表情变化传递错误信息，降低冰冷的系统提示感。</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="agent-video-section agent-video-section-filled agent-reveal" aria-label="视频区域二" data-video-slot="2">
+        <img
+          src="../assets/images/ai-agent-slices/ai-agent-video-02-placeholder.webp"
+          width="1920"
+          height="738"
+          alt="视频区域二占位"
+        />
+        <video
+          class="agent-video-frame"
+          src="../assets/videos/wake-interaction.webm"
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="metadata"
+          aria-label="视频区域二"
+        ></video>
+      </section>
+
+      <div class="agent-section-gap" aria-hidden="true"></div>
+
+      <section id="health" class="health-module agent-reveal" aria-label="健康管理与主动守护">
+        <div class="health-section health-hero">
+          <div class="health-index">
+            <span>04</span>
+            <h2>健康管理<br />与主动守护</h2>
+          </div>
+          <div class="health-copy">
+            <p class="health-kicker">健康管理与主动守护</p>
+            <h3>让用户看懂自己的状态，并在需要时及时获得帮助</h3>
+            <p>
+              在家庭健康场景中，用户不需要面对更多指标，而需要快速知道：今天状态如何、是否需要关注、下一步该做什么。
+              设计重点因此从展示数据，转向减少理解负担、控制打扰频率，并在用户无法回应时继续提供帮助。
+            </p>
+            <div class="health-pills" aria-label="健康模块关键词">
+              <span>快速看懂</span>
+              <span>减少打扰</span>
+              <span>明确行动</span>
+              <span>及时响应</span>
+            </div>
+            <p class="health-emphasis">设计命题：如何让用户在平时少被打扰，在需要帮助时不被遗漏。</p>
+          </div>
+        </div>
+
+        <div class="health-section health-thinking">
+          <div class="health-section-title">
+            <h3>产品思路</h3>
+            <p>先梳理用户在不同状态下需要什么，再决定界面与提醒方式</p>
+          </div>
+          <div class="health-logic">
+            <div class="health-logic-column">
+              <h4>用户如何看懂状态</h4>
+              <div class="health-flow-card">
+                <b>不必辨认设备</b>
+                <p>无论数据来自哪台设备，用户都从自己的健康状态进入</p>
+              </div>
+              <i></i>
+              <div class="health-flow-card">
+                <b>先看到整体结论</b>
+                <p>减少逐项比较指标的理解负担</p>
+              </div>
+              <i></i>
+              <div class="health-flow-card">
+                <b>理解对生活的影响</b>
+                <p>把数据放回睡眠、活动与日常行为中解释</p>
+              </div>
+            </div>
+            <div class="health-logic-arrow" aria-hidden="true">→</div>
+            <div class="health-logic-column health-logic-guard">
+              <h4>用户如何获得帮助</h4>
+              <div class="health-flow-card"><b>正常时安静陪伴</b></div>
+              <i></i>
+              <div class="health-flow-card"><b>变化时说明发生了什么</b></div>
+              <i></i>
+              <div class="health-flow-card"><b>风险出现时区分轻重</b></div>
+              <i></i>
+              <div class="health-flow-card"><b>提醒时给出可执行建议</b></div>
+              <i></i>
+              <div class="health-flow-card"><b>无法回应时仍能获得帮助</b></div>
+            </div>
+          </div>
+          <p class="health-frame-line">用户先看懂自己发生了什么，再知道现在是否需要行动。</p>
+        </div>
+
+        <div class="health-section health-kit">
+          <div class="health-section-title">
+            <h3>健康套件</h3>
+            <p>同一套健康信息，如何适配“主动查看”与“及时获知”两种用户时刻？</p>
+          </div>
+          <div class="health-kit-layout">
+            <div class="health-kit-gallery">
+              <figure class="health-image-slot health-home-slot health-kit-shot">
+                <img src="../assets/images/health-module/health-suite-home.webp" alt="健康套件首页" loading="lazy" />
+                <figcaption>
+                  <span>用户主动发起</span>
+                  <b>健康套件首页</b>
+                  <p>想了解时，按需查看完整状态</p>
+                </figcaption>
+              </figure>
+              <figure class="health-image-slot health-home-slot health-kit-shot">
+                <img
+                  src="../assets/images/health-module/health-inspection-report.webp"
+                  alt="每日健康巡检报告界面"
+                  loading="lazy"
+                />
+                <figcaption>
+                  <span>Agent 主动发起</span>
+                  <b>健康巡检报告</b>
+                  <p>需要关注时，直接获得当天结论</p>
+                </figcaption>
+              </figure>
+              <div class="health-kit-relation">
+                <b>按需查看</b>
+                <i>+</i>
+                <b>及时告知</b>
+                <p>入口不同，但都先帮助用户判断“今天是否需要关注”。</p>
+              </div>
+            </div>
+            <div class="health-decisions">
+              <article>
+                <span>01</span>
+                <h4>两种触达，对应两种用户意图</h4>
+                <p>用户想主动了解时进入健康套件；出现需要关注的变化时，由 Agent 汇总并告知。</p>
+                <b>首页承接主动查看，巡检报告补足用户没有打开页面的时刻。</b>
+              </article>
+              <article>
+                <span>02</span>
+                <h4>先给结论，再看依据</h4>
+                <p>两种触达都先回答今天是否正常，需要时再查看具体指标和变化原因。</p>
+              </article>
+              <article>
+                <span>03</span>
+                <h4>状态组织保持一致</h4>
+                <p>无论用户查看页面还是接收报告，都按熟悉的健康状态理解，不必重新学习。</p>
+              </article>
+              <p class="health-device-line">触达方式随场景变化，用户理解健康状态的方式保持一致</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="health-section health-scene">
+          <div class="health-section-title health-scene-title">
+            <h3>全场景健康守护</h3>
+            <p>让用户在一个页面理解“今天怎么样”</p>
+          </div>
+          <p class="health-scene-copy">
+            如果心率、睡眠和活动分散在不同入口，用户需要自己拼凑结论。将三类信息围绕一个人同时呈现，让用户先理解整体状态，再按需查看细节。
+          </p>
+          <div class="health-scene-visual">
+            <figure class="health-image-slot health-body-slot">
+              <img src="../assets/images/health-module/full-scene-monitoring.webp" alt="全场景健康守护界面" loading="lazy" />
+            </figure>
+            <div class="health-mini-tag health-tag-behavior">
+              <b>日常活动</b>
+              <span>活动轨迹 / 久坐 / 跌倒</span>
+            </div>
+            <div class="health-mini-tag health-tag-physical">
+              <b>身体指标</b>
+              <span>呼吸 / 心率</span>
+            </div>
+            <div class="health-mini-tag health-tag-sleep">
+              <b>睡眠情况</b>
+              <span>睡眠 / 小睡 / 起夜</span>
+            </div>
+          </div>
+          <p class="health-frame-line">用户不必在多个功能之间往返，就能判断今天的状态是否需要关注。</p>
+        </div>
+
+        <div class="health-section health-events">
+          <div class="health-section-title">
+            <h3>状态理解</h3>
+            <p>让用户看到有意义的健康事件，而不是传感器信号</p>
+          </div>
+          <div class="health-events-layout">
+            <div class="health-event-list">
+              <article>
+                <h4>久坐事件</h4>
+                <p>只有静止状态持续达到条件才形成久坐事件，避免短暂停留带来不必要的提醒。</p>
+              </article>
+              <article>
+                <h4>起夜事件</h4>
+                <p>结合离床时间与持续清醒状态，避免正常翻身被误判为起夜。</p>
+              </article>
+              <article>
+                <h4>活动轨迹</h4>
+                <p>把分散的位置记录整理成一天的活动路径，帮助用户回顾生活状态。</p>
+              </article>
+              <article>
+                <h4>跌倒事件</h4>
+                <p>姿态变化后继续观察活动情况，减少误报带来的不必要惊扰。</p>
+              </article>
+            </div>
+            <div class="health-event-images">
+              <figure class="health-image-slot">
+                <img src="../assets/images/health-module/activity-monitoring.webp" alt="活动监测局部界面" loading="lazy" />
+              </figure>
+              <figure class="health-image-slot">
+                <img src="../assets/images/health-module/sleep-monitoring.webp" alt="睡眠监测局部界面" loading="lazy" />
+              </figure>
+            </div>
+          </div>
+          <p class="health-frame-line">用户无需理解传感器如何工作，只需知道发生了什么、是否需要关注。</p>
+        </div>
+
+        <div class="health-section health-risk">
+          <div class="health-section-title">
+            <h3>风险分级</h3>
+            <p>什么时候该提醒，提醒到什么程度？</p>
+          </div>
+          <div class="health-risk-grid">
+            <article class="health-risk-normal">
+              <span>01 正常</span>
+              <h4>静默守护</h4>
+              <div class="health-risk-signal health-risk-signal-normal" aria-label="提示强度低">
+                <span>提示强度</span>
+                <div class="health-risk-meter" aria-hidden="true"><i></i><i></i><i></i></div>
+                <small>低</small>
+              </div>
+              <p>状态稳定<br />用户无需操作</p>
+              <small>保持安静，只在用户主动查看时呈现。</small>
+            </article>
+            <article class="health-risk-watch">
+              <span>02 关注</span>
+              <h4>主动提醒</h4>
+              <div class="health-risk-signal health-risk-signal-watch" aria-label="提示强度中">
+                <span>提示强度</span>
+                <div class="health-risk-meter" aria-hidden="true"><i></i><i></i><i></i></div>
+                <small>中</small>
+              </div>
+              <p>出现轻度变化<br />用户可以自行调整</p>
+              <small>用轻量提示说明变化，并给出容易完成的建议。</small>
+            </article>
+            <article class="health-risk-danger">
+              <span>03 紧急</span>
+              <h4>紧急协助</h4>
+              <div class="health-risk-signal health-risk-signal-danger" aria-label="提示强度高">
+                <span>提示强度</span>
+                <div class="health-risk-meter" aria-hidden="true"><i></i><i></i><i></i></div>
+                <small>高</small>
+              </div>
+              <p>可能无法自行处理<br />需要及时获得帮助</p>
+              <small>用醒目方式请求确认，无响应时进入求助流程。</small>
+            </article>
+          </div>
+          <div class="health-risk-line">风险越高 → 信息越醒目 → 确认越明确 → 帮助越及时</div>
+          <p class="health-frame-line">每一次打扰都应对应明确的用户风险和下一步行动。</p>
+        </div>
+
+        <div class="health-section health-intervention">
+          <div class="health-section-title">
+            <h3>主动健康干预</h3>
+            <p>怎样提醒，用户才愿意长期接受？</p>
+          </div>
+          <div class="health-intervention-layout">
+            <div class="health-chain">
+              <b>用户长时间保持同一坐姿</b>
+              <i></i>
+              <span>持续达到 <strong>50 min</strong></span>
+              <i></i>
+              <span>判断为需要活动</span>
+              <i></i>
+              <b>通过屏幕 + 语音轻提醒</b>
+              <i></i>
+              <span>建议：<strong>起身活动 5 分钟</strong></span>
+            </div>
+            <div class="health-alert-card">
+              <img src="../assets/images/health-module/sedentary-alert.webp" alt="久坐提醒弹窗" loading="lazy" />
+            </div>
+          </div>
+          <p class="health-muted-note">
+            久坐属于用户可以自行处理的低风险事件，因此提醒应允许关闭或稍后处理，建议也要容易完成；避免把所有监测结果都升级为强提醒，降低长期使用中的提醒疲劳。
+          </p>
+          <p class="health-frame-line">好的主动提醒让用户知道发生了什么，也保留是否立即行动的选择。</p>
+        </div>
+
+        <div class="health-section health-emergency">
+          <div class="health-section-title">
+            <h3>紧急事件</h3>
+            <p>当用户无法及时回应时，如何保证帮助不中断？</p>
+          </div>
+          <div class="health-emergency-visual">
+            <figure class="health-image-slot">
+              <img src="../assets/images/health-module/fall-emergency.webp" alt="跌倒识别紧急处理界面" loading="lazy" />
+            </figure>
+            <figure class="health-image-slot">
+              <img src="../assets/images/health-module/breath-heart-emergency.webp" alt="呼吸心率严重异常紧急处理界面" loading="lazy" />
+            </figure>
+          </div>
+          <div class="health-emergency-flow">
+            <span>发现高风险</span>
+            <span>先确认用户是否安全</span>
+            <span>全屏提示，便于及时回应</span>
+            <span>保留 10 秒响应窗口</span>
+            <span>无人回应时联系紧急联系人 / 120</span>
+          </div>
+          <p class="health-emergency-conclusion">用户真正需要的不是一条“异常”提示，而是在无法自行处理时，后续帮助仍能继续。</p>
+          <p class="health-muted-note">
+            专业规则负责判断风险；我的设计关注如何让用户看得懂、来得及回应，并在无法回应时获得及时帮助。
+          </p>
+        </div>
+      </section>
+
+      <section id="summary" class="agent-final-summary agent-reveal" aria-label="设计总结">
+        <div class="summary-index">
+          <span>05</span>
+          <h2>设计总结</h2>
+        </div>
+        <div class="summary-content">
+          <h3>设计的不再只是界面，而是人与智能系统之间的关系</h3>
+          <p>
+            HomeClaw 并不是一个已经商业化发布的最终产品，而是一次围绕 AI Agent 智能硬件体验的完整设计探索。
+            从产品定义、交互框架到体验验证，我尝试回答一个持续思考的问题：
+          </p>
+          <p class="summary-emphasis">当 AI 从工具走向 Agent，产品设计应该如何随之改变？</p>
+          <div class="summary-card-grid">
+            <article>
+              <h4>“零级入口”</h4>
+              <p>人与 Agent 如何开始交流</p>
+            </article>
+            <article>
+              <h4>主动感知</h4>
+              <p>Agent 什么时候应该主动</p>
+            </article>
+            <article>
+              <h4>IP</h4>
+              <p>Agent 以什么身份出现</p>
+            </article>
+            <article>
+              <h4>健康守护</h4>
+              <p>当用户无法自行处理风险时，Agent 如何让帮助继续？</p>
+            </article>
+          </div>
+          <p class="summary-closing">
+            过去我们设计的是功能如何被使用，而未来，我们设计的是人与智能系统如何建立长期、自然且可信的关系。
+          </p>
+        </div>
+      </section>
+
+      <template id="agent-video-slot-template">
+        <section class="agent-video-section agent-reveal" aria-label="视频区域三" data-video-slot="3">
+          <video class="agent-video-frame" muted playsinline preload="metadata" aria-label="视频区域三"></video>
+        </section>
+      </template>
+    </main>
+    <script>
+      (function () {
+        const canvas = document.querySelector(".agent-starfield");
+
+        if (!canvas) {
+          return;
+        }
+
+        const context = canvas.getContext("2d");
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const starCount = 80;
+        const bigStarCount = 5 + Math.floor(Math.random() * 4);
+        const starColors = ["#ffffff", "#f6fbff", "#eaf6ff", "#d9efff", "#c9e7ff"];
+        const particles = [];
+        const bigStars = [];
+        let meteor = null;
+        let nextMeteorAt = 0;
+        let width = 0;
+        let height = 0;
+        let dpr = 1;
+        let lastTime = performance.now();
+
+        function randomBetween(min, max) {
+          return min + Math.random() * (max - min);
+        }
+
+        function scheduleMeteor(now) {
+          nextMeteorAt = now + randomBetween(5000, 10000);
+        }
+
+        function createParticle() {
+          return {
+            x: Math.random() * width,
+            y: Math.random() * height,
+            size: randomBetween(1, 3),
+            speed: randomBetween(0.1, 0.3),
+            color: starColors[Math.floor(Math.random() * starColors.length)],
+            alpha: randomBetween(0.42, 0.95),
+          };
+        }
+
+        function createBigStar() {
+          return {
+            x: Math.random() * width,
+            y: Math.random() * height,
+            size: randomBetween(4, 6),
+            speed: randomBetween(0.04, 0.12),
+            color: starColors[Math.floor(Math.random() * starColors.length)],
+            phase: Math.random() * Math.PI * 2,
+            twinkleSpeed: randomBetween(0.001, 0.0024),
+          };
+        }
+
+        function resizeCanvas() {
+          dpr = Math.min(window.devicePixelRatio || 1, 2);
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = Math.ceil(width * dpr);
+          canvas.height = Math.ceil(height * dpr);
+          canvas.style.width = width + "px";
+          canvas.style.height = height + "px";
+          context.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+          particles.length = 0;
+          bigStars.length = 0;
+
+          for (let index = 0; index < starCount; index += 1) {
+            particles.push(createParticle());
+          }
+
+          for (let index = 0; index < bigStarCount; index += 1) {
+            bigStars.push(createBigStar());
+          }
+        }
+
+        function drawParticle(star, deltaFrames) {
+          star.y -= star.speed * deltaFrames;
+
+          if (star.y + star.size < 0) {
+            star.y = height + star.size;
+            star.x = Math.random() * width;
+          }
+
+          context.globalAlpha = star.alpha;
+          context.fillStyle = star.color;
+          context.beginPath();
+          context.arc(star.x, star.y, star.size / 2, 0, Math.PI * 2);
+          context.fill();
+        }
+
+        function drawBigStar(star, now, deltaFrames) {
+          star.y -= star.speed * deltaFrames;
+
+          if (star.y + star.size < 0) {
+            star.y = height + star.size;
+            star.x = Math.random() * width;
+          }
+
+          const pulse = 0.54 + Math.sin(now * star.twinkleSpeed + star.phase) * 0.28;
+          const radius = star.size / 2;
+
+          context.globalAlpha = Math.max(0.2, pulse);
+          context.fillStyle = star.color;
+          context.shadowColor = star.color;
+          context.shadowBlur = 14;
+          context.beginPath();
+          context.arc(star.x, star.y, radius, 0, Math.PI * 2);
+          context.fill();
+          context.shadowBlur = 0;
+        }
+
+        function spawnMeteor(now) {
+          const length = 50;
+          const startX = randomBetween(-80, width * 0.45);
+          const startY = randomBetween(-60, height * 0.38);
+          const travel = Math.max(width, height) * randomBetween(0.72, 1.05);
+
+          meteor = {
+            startX,
+            startY,
+            endX: startX + travel,
+            endY: startY + travel,
+            length,
+            born: now,
+            duration: 1500,
+          };
+        }
+
+        function drawMeteor(now) {
+          if (!meteor) {
+            return;
+          }
+
+          const progress = (now - meteor.born) / meteor.duration;
+
+          if (progress >= 1) {
+            meteor = null;
+            scheduleMeteor(now);
+            return;
+          }
+
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const headX = meteor.startX + (meteor.endX - meteor.startX) * eased;
+          const headY = meteor.startY + (meteor.endY - meteor.startY) * eased;
+          const tailOffset = meteor.length / Math.sqrt(2);
+          const tailX = headX - tailOffset;
+          const tailY = headY - tailOffset;
+          const fade = progress < 0.18 ? progress / 0.18 : Math.max(0, (1 - progress) / 0.22);
+          const gradient = context.createLinearGradient(tailX, tailY, headX, headY);
+
+          gradient.addColorStop(0, "rgba(255, 255, 255, 0)");
+          gradient.addColorStop(0.55, "rgba(255, 255, 255, 0.46)");
+          gradient.addColorStop(1, "rgba(255, 255, 255, 0.96)");
+
+          context.globalAlpha = fade;
+          context.strokeStyle = gradient;
+          context.lineWidth = 2;
+          context.lineCap = "round";
+          context.shadowColor = "rgba(255, 255, 255, 0.82)";
+          context.shadowBlur = 10;
+          context.beginPath();
+          context.moveTo(tailX, tailY);
+          context.lineTo(headX, headY);
+          context.stroke();
+
+          context.globalAlpha = fade;
+          context.fillStyle = "#ffffff";
+          context.shadowBlur = 16;
+          context.beginPath();
+          context.arc(headX, headY, 2.2, 0, Math.PI * 2);
+          context.fill();
+          context.shadowBlur = 0;
+        }
+
+        function draw(now) {
+          const deltaFrames = Math.min((now - lastTime) / 16.67, 3);
+          lastTime = now;
+
+          context.clearRect(0, 0, width, height);
+          context.globalAlpha = 1;
+          context.shadowBlur = 0;
+
+          for (const particle of particles) {
+            drawParticle(particle, deltaFrames);
+          }
+
+          for (const star of bigStars) {
+            drawBigStar(star, now, deltaFrames);
+          }
+
+          if (!prefersReducedMotion && !meteor && now >= nextMeteorAt) {
+            spawnMeteor(now);
+          }
+
+          if (!prefersReducedMotion) {
+            drawMeteor(now);
+          }
+
+          window.requestAnimationFrame(draw);
+        }
+
+        resizeCanvas();
+        scheduleMeteor(performance.now());
+        window.addEventListener("resize", resizeCanvas);
+        window.requestAnimationFrame(draw);
+      })();
+    </script>
+  </body>
+</html>
