@@ -9,6 +9,108 @@
       content="HomeClaw AI Agent 探索作品详情，展示桌面框架、主动感知系统与智能服务体验设计。"
     />
     <link rel="stylesheet" href="../page.css?v=20260820-17" />
+    <style>
+      /* 去除其他章节截图的暗色背景；咖啡场景保留原始调性，不受影响 */
+      .agent-product-shot {
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+      }
+      .agent-product-shot img {
+        mix-blend-mode: screen;
+      }
+
+      /* 还原咖啡场景章节的原始样式 */
+      #coffee-scenario .agent-product-shot {
+        background: #050a10;
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: inset 0 0 64px rgba(48, 136, 255, 0.08);
+      }
+      #coffee-scenario .agent-product-shot img {
+        mix-blend-mode: normal;
+      }
+
+      /* 晨间睡眠反馈：让文字和图片垂直居中对齐 */
+      .agent-heartbeat {
+        align-items: center;
+      }
+
+      /* 视频区域一：主动感知补充案例 */
+      .agent-video-section-compact {
+        width: min(100% - 144px, 1100px);
+        margin: -36px auto -28px;
+        padding: 0;
+      }
+
+      /* 紧急事件：去掉 inset 红色阴影背景 */
+      .health-emergency {
+        box-shadow: none;
+      }
+
+      /* 紧急事件：缩小结论字号、让说明文字占满整行 */
+      .health-emergency-conclusion {
+        font-size: clamp(18px, 1.5vw, 26px);
+        font-weight: 500;
+      }
+      .health-emergency .health-muted-note {
+        grid-column: 1 / -1;
+      }
+      .agent-video-intro {
+        margin: 0 auto 14px;
+        text-align: center;
+      }
+      .agent-video-intro h3 {
+        margin: 6px 0 8px;
+        color: #fff;
+        font-size: clamp(22px, 1.6vw, 30px);
+        font-weight: 600;
+        line-height: 1.35;
+      }
+      .agent-video-intro p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.62);
+        font-size: clamp(15px, 1vw, 18px);
+        line-height: 1.65;
+      }
+      .agent-video-frame-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        background: #000;
+      }
+      .agent-video-frame-wrap .agent-video-frame {
+        position: absolute;
+        inset: 0;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 24px;
+      }
+
+      /* 全场景健康守护：标题与正文左对齐，与"健康套件"等其它章节同节奏 */
+      .health-scene-title,
+      .health-scene-copy,
+      .health-scene .health-frame-line {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      /* 全场景健康守护：去掉三枚标签后，给图片上下留出更舒缓的呼吸 */
+      .health-scene-visual {
+        margin-top: 36px;
+        margin-bottom: 30px;
+      }
+
+      /* 全场景健康守护：收束句居中 */
+      .health-scene .health-frame-line {
+        text-align: center;
+      }
+    </style>
   </head>
   <body class="ai-agent-figma-page">
     <main class="agent-modular-page" aria-label="AI Agent 探索详情页">
@@ -29,7 +131,7 @@
             </div>
             <div class="agent-cover-introduction">
               <p>
-                HomeClaw 是一款运行在智能中屏（带屏智能音箱）上的 Agent 桌面应用，具备自主感知、决策和执行能力，能够主动感知环境、记住用户习惯，并逐步形成更贴近家庭生活的服务。
+                HomeClaw 是面向带屏智能音箱的 Agent 桌面应用。项目探索如何将环境线索、用户习惯与服务能力组织为可理解的交互，让设备从响应指令，逐步走向更贴近日常的主动协助。
               </p>
               <video
                 class="agent-cover-video"
@@ -54,7 +156,7 @@
                 负责将 Agent 能力从产品需求与服务场景，逐步转化为具体的交互框架与界面体验，并协同推进方案验证与落地。
               </p>
               <p>
-                工作覆盖产品需求梳理、服务场景设计、Agent 交互框架、主动服务机制、零级入口、多模态交互与状态反馈，以及 UI 设计、规范定义和前端质量验证。
+                工作覆盖需求梳理、服务场景设计、Agent 交互框架、主动服务机制、零级入口、多模态交互与状态反馈，以及 UI 设计、规范定义和前端落地验证。
               </p>
               <ul class="agent-cover-role-tags" aria-label="项目职责">
                 <li>AI Agent 交互框架设计</li>
@@ -80,7 +182,7 @@
             </header>
             <div class="agent-cover-background-intro">
               <h3>HomeClaw 的三阶段 AI 范式演进</h3>
-              <p>随着 AI 能力从指令执行走向自主 Agent，HomeClaw 也经历了从功能型设备到主动式智能伙伴的演进。</p>
+              <p>随着 AI 能力从指令执行走向自主 Agent，HomeClaw 的体验重点也从“功能是否可用”，转向“设备能否理解场景并提供合适帮助”。</p>
             </div>
             <ol class="agent-cover-stages">
               <li>
@@ -102,7 +204,7 @@
                   <img src="../assets/images/ai-agent-html/stage-2-agent.png" alt="云唔精灵 2.0 个性化桌面" loading="lazy" />
                 </figure>
                 <p>随着大语言模型的发展，AI 开始从传统语音助手向 Agent 方向演进。</p>
-                <p>产品体验停留在用户提出需求、AI 完成响应的交互关系中，设备对用户之间的关系并没有发生根本变化。</p>
+                <p>产品体验仍停留在用户提出需求、AI 完成响应的关系中，设备与用户之间的协作方式并没有发生根本变化。</p>
                 <strong>能力更强，但仍需要用户先开口。</strong>
               </li>
               <li>
@@ -126,8 +228,8 @@
           <h2>核心挑战</h2>
           <p class="agent-challenge-en">Core Challenges</p>
           <p>
-            随着 AI 能力从“理解指令”向“自主规划与执行”演进，云唔精灵产品目标也从提升交互效率，
-            转向构建具备主动服务能力的 Agent 系统——<b>HomeClaw</b>。
+            随着 AI 能力从“理解指令”向“理解场景并协助行动”演进，云唔精灵的设计目标也从提升单次交互效率，
+            转向探索具备主动服务能力的 Agent 系统——<b>HomeClaw</b>。
           </p>
           <p>但在 2.0 阶段，虽然产品已经具备 AI Agent 对话能力，仍存在三个关键问题：</p>
         </header>
@@ -150,7 +252,7 @@
                 <span>系统执行反馈</span>
               </div>
               <p class="agent-challenge-note">
-                设备依然需要用户主动唤醒和输入，无法基于环境、时间和用户状态主动提供服务。
+                设备依然依赖用户主动唤醒和输入，很多发生在环境、时间和状态变化中的需求，难以及时被识别。
               </p>
             </div>
           </li>
@@ -166,10 +268,10 @@
               <div class="agent-challenge-flow agent-challenge-flow-plain">
                 <span>每次交互需要重新建立上下文</span>
                 <span>长期使用价值难以形成</span>
-                <span>用户无法对设备产生依赖</span>
+                <span>用户难以形成稳定使用预期</span>
               </div>
               <p class="agent-challenge-note">
-                缺乏跨会话记忆，无法形成连续体验，无法形成“设备理解我”的认知。
+                缺少跨会话的状态延续，用户每次都要重新说明背景，难以形成“设备理解我”的感受。
               </p>
             </div>
           </li>
@@ -224,7 +326,7 @@
             <p class="agent-html-kicker">从卡片式到“零级入口”</p>
             <h3>让用户表达目标，而不是先理解产品功能</h3>
             <p>
-              当 AI 从功能执行者转向 Agent，传统的“打开设备 → 浏览功能 → 选择服务 → 执行任务”开始成为负担。
+              当 AI 从功能执行者转向 Agent，传统的“打开设备 → 浏览功能 → 选择服务 → 执行任务”会放大用户的认知负担。
               用户需要记住产品有什么能力、入口在哪里，才能完成一次交互。
             </p>
             <p class="agent-html-emphasis">设计方向：把桌面从功能目录，转变为用户与 Agent 协作的起点。</p>
@@ -334,13 +436,13 @@
             <div class="agent-zero-entry-copy">
               <h3>桌面不再是功能展示区域，<br />而成为 <span class="agent-html-emphasis">Agent</span> 存在的空间。</h3>
               <p>
-                随着 AI Agent 能力成熟，设备不再需要用户提前理解和管理所有能力。
+                随着 AI Agent 能力增强，设备不应再要求用户提前理解和管理所有能力。
               </p>
               <p>
                 因此桌面从：“功能展示与管理空间”
               </p>
               <p>
-                转变为：用户与 Agent 协作空间。
+                转变为：“用户表达目标，Agent 组织能力”的协作空间。
               </p>
               <p>用户只需要表达目标：</p>
               <ul class="agent-zero-entry-quotes">
@@ -364,7 +466,7 @@
             <p class="agent-html-kicker">从“人找服务”到“服务找人”</p>
             <h3>设备能否在用户没有主动输入时，理解用户状态并提供合适服务</h3>
             <p>
-              在探索 Agent 产品形态时，我发现单纯提升 AI 的回答能力，并不能解决智能设备长期使用的问题。
+              在探索 Agent 产品形态时，我发现单纯提升 AI 的回答能力，并不能解决用户何时需要帮助、是否愿意被打扰的问题。
             </p>
             <p class="agent-html-emphasis">真正要解决的，是用户开口之前的那段时间。</p>
           </div>
@@ -376,17 +478,17 @@
             <div class="agent-limit-flow" aria-label="传统智能助手运行逻辑">
               <span>用户输入</span>
               <i aria-hidden="true"></i>
-              <span>AI 理解</span>
+              <span>理解意图</span>
               <i aria-hidden="true"></i>
-              <span>返回结果</span>
+              <span>给出反馈</span>
             </div>
             <p class="agent-limit-lead">AI 的能力被限制在用户主动发起的瞬间，设备仍然需要：</p>
             <ul class="agent-limit-list">
               <li>用户主动唤醒</li>
               <li>用户明确提出需求</li>
-              <li>用户知道自己需要什么服务</li>
+              <li>用户知道该请求哪项服务</li>
             </ul>
-            <p class="agent-limit-note">但在真实生活场景中，很多需求并不会被用户主动提出。</p>
+            <p class="agent-limit-note">但在真实家庭场景中，很多需求出现在用户尚未开口、甚至没有意识到需要帮助的时候。</p>
           </div>
           <div class="agent-chat-mock" aria-label="传统一问一答式交互示例">
             <p class="agent-chat-bubble agent-chat-user">今天天气怎么样？</p>
@@ -414,7 +516,7 @@
             <figcaption><span>巡检</span>用户决定 Agent 关注什么、何时执行</figcaption>
           </figure>
           <div class="agent-service-chain">
-            <p class="agent-service-chain-lead">构建基于硬件感知和 Agent 调度机制的主动服务系统。</p>
+            <p class="agent-service-chain-lead">因此主动服务需要先建立边界：系统关注什么、何时出现、以什么强度介入。</p>
             <ol>
               <li>持续获取用户状态</li>
               <li>判断潜在需求</li>
@@ -471,33 +573,42 @@
           </figure>
           <div class="agent-heartbeat-rule">
             <h4>晨间睡眠反馈的设计规则</h4>
-            <p class="agent-heartbeat-lead">把“每天生成一份报告”，转化为用户愿意接收的低打扰服务：</p>
+            <p class="agent-heartbeat-lead">
+              这类反馈的重点不是把夜间数据完整播报一遍，而是把“昨晚状态如何”转化成用户早上能快速理解、愿意接收的低打扰服务。
+            </p>
             <ul>
-              <li>仅在用户开启服务、且昨夜数据完整时触达，避免无意义提醒</li>
-              <li>先给出一眼能看懂的结论，再提供指标作为依据</li>
-              <li>反馈放在早晨这一稳定时段，避免在夜间或工作中打断用户</li>
-              <li>对于正常状态保持简短；出现变化时，说明原因并给出下一步建议</li>
+              <li>触达时机放在早晨，避开夜间和工作中的高打扰场景</li>
+              <li>信息顺序先给结论，再用总睡眠、夜间心率、呼吸频率解释判断依据</li>
+              <li>正常状态保持简短和肯定，减少用户对健康数据的焦虑感</li>
+              <li>当连续变化或风险升高时，再展开原因说明和下一步建议</li>
             </ul>
             <div class="agent-heartbeat-format">
-              <b>睡眠日报</b>
-              <p>昨夜睡眠整体平稳，入睡时间与起夜次数没有明显变化。</p>
-              <p>若发现连续几天睡眠质量下降，会说明具体变化，并建议用户查看详情或调整当天安排。</p>
+              <b>反馈结构</b>
+              <p>先告诉用户“昨晚睡得怎么样”，再呈现关键指标作为依据。</p>
+              <p>只有当状态发生明显变化时，才进一步解释原因并引导用户查看详情或调整当天安排。</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="agent-video-section agent-video-section-filled agent-reveal" aria-label="视频区域一" data-video-slot="1">
-        <video
-          class="agent-video-frame"
-          src="../assets/videos/active-perception-inspection.webm"
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="metadata"
-          aria-label="视频区域一"
-        ></video>
+      <section class="agent-video-section agent-video-section-compact agent-reveal" aria-label="主动感知的其他案例" data-video-slot="1">
+        <header class="agent-video-intro">
+          <p class="agent-html-kicker">主动感知案例 · Proactive Sensing</p>
+          <h3>根据场景变化，触发不同服务</h3>
+          <p>在起床、休闲、休息等生活片段中，Agent 根据时间、环境和用户状态判断是否需要出现，并选择日程提醒、内容播报、清洁联动或高优先级呼叫等不同反馈方式。</p>
+        </header>
+        <div class="agent-video-frame-wrap">
+          <video
+            class="agent-video-frame"
+            src="../assets/videos/active-perception-inspection.webm"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            aria-label="夜间主动关怀视频"
+          ></video>
+        </div>
       </section>
 
       <section id="agent-persona" class="agent-html-section agent-persona-section agent-reveal" aria-label="可感知的交互载体">
@@ -518,7 +629,7 @@
               <div>
                 <b>现在</b>
                 <p>
-                  Agent 模式下，设备需要<strong>持续理解用户、主动反馈状态、建立长期交互关系</strong>。
+                  Agent 模式下，设备需要<strong>持续呈现状态、解释过程，并建立长期可理解的交互关系</strong>。
                 </p>
               </div>
             </div>
@@ -538,7 +649,7 @@
           <div class="agent-state-system-title">
             <h3>Agent 状态反馈体系</h3>
             <p>
-              Agent 的交互过程包含多个不可见状态，通过 IP 动作和表情进行视觉化反馈，让用户理解当前系统状态。
+              Agent 的交互过程包含多个不可见状态，需要通过 IP 动作和表情转化成用户能看懂的反馈。
             </p>
           </div>
           <ul class="agent-state-grid">
@@ -594,19 +705,22 @@
             </li>
           </ul>
         </div>
-      </section>
 
-      <section class="agent-video-section agent-video-section-filled agent-reveal" aria-label="视频区域二" data-video-slot="2">
-        <video
-          class="agent-video-frame"
-          src="../assets/videos/wake-interaction.webm"
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="metadata"
-          aria-label="视频区域二"
-        ></video>
+        <figure class="agent-video-section agent-ip-dialog-section" aria-label="IP 状态示例" data-video-slot="2">
+        <div class="agent-ip-dialog-media">
+          <video
+            class="agent-video-frame"
+            src="../assets/videos/wake-interaction.webm"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            aria-label="IP 状态反馈示例"
+          ></video>
+        </div>
+        <figcaption><span>L1 示例</span>一次语音查询中，IP 通过动作状态承接唤醒、聆听、理解与结果反馈。</figcaption>
+        </figure>
       </section>
 
       <div class="agent-section-gap" aria-hidden="true"></div>
@@ -619,10 +733,10 @@
           </div>
           <div class="health-copy">
             <p class="health-kicker">健康管理与主动守护</p>
-            <h3>让用户看懂自己的状态，并在需要时及时获得帮助</h3>
+            <h3>把健康数据转化为用户能理解、能行动的状态反馈</h3>
             <p>
-              在家庭健康场景中，用户不需要面对更多指标，而需要快速知道：今天状态如何、是否需要关注、下一步该做什么。
-              设计重点因此从展示数据，转向减少理解负担、控制打扰频率，并在用户无法回应时继续提供帮助。
+              在家庭健康场景中，关键不是让用户看到更多指标，而是降低判断成本：今天状态如何、是否需要关注、下一步该做什么。
+              设计重点因此从数据展示，转向状态解释、打扰控制，以及风险场景下的后续帮助路径。
             </p>
             <div class="health-pills" aria-label="健康模块关键词">
               <span>快速看懂</span>
@@ -637,11 +751,11 @@
         <div class="health-section health-thinking">
           <div class="health-section-title">
             <h3>产品思路</h3>
-            <p>先梳理用户在不同状态下需要什么，再决定界面与提醒方式</p>
+            <p>先定义用户如何判断状态，再决定界面信息与提醒方式</p>
           </div>
           <div class="health-logic">
             <div class="health-logic-column">
-              <h4>用户如何看懂状态</h4>
+              <h4>如何降低理解成本</h4>
               <div class="health-flow-card">
                 <b>不必辨认设备</b>
                 <p>无论数据来自哪台设备，用户都从自己的健康状态进入</p>
@@ -659,7 +773,7 @@
             </div>
             <div class="health-logic-arrow" aria-hidden="true">→</div>
             <div class="health-logic-column health-logic-guard">
-              <h4>用户如何获得帮助</h4>
+              <h4>如何控制介入强度</h4>
               <div class="health-flow-card"><b>正常时安静陪伴</b></div>
               <i></i>
               <div class="health-flow-card"><b>变化时说明发生了什么</b></div>
@@ -671,13 +785,13 @@
               <div class="health-flow-card"><b>无法回应时仍能获得帮助</b></div>
             </div>
           </div>
-          <p class="health-frame-line">用户先看懂自己发生了什么，再知道现在是否需要行动。</p>
+          <p class="health-frame-line">先帮助用户判断发生了什么，再决定是否需要行动。</p>
         </div>
 
         <div class="health-section health-kit">
           <div class="health-section-title">
             <h3>健康套件</h3>
-            <p>同一套健康信息，如何适配“主动查看”与“及时获知”两种用户时刻？</p>
+            <p>同一套健康信息，如何适配“主动查看”与“被提醒关注”两种用户时刻？</p>
           </div>
           <div class="health-kit-layout">
             <div class="health-kit-gallery">
@@ -696,9 +810,9 @@
                   loading="lazy"
                 />
                 <figcaption>
-                  <span>Agent 主动发起</span>
+                  <span>Agent 主动告知</span>
                   <b>健康巡检报告</b>
-                  <p>需要关注时，直接获得当天结论</p>
+                  <p>需要关注时，直接获得状态结论</p>
                 </figcaption>
               </figure>
               <div class="health-kit-relation">
@@ -712,7 +826,7 @@
               <article>
                 <span>01</span>
                 <h4>两种触达，对应两种用户意图</h4>
-                <p>用户想主动了解时进入健康套件；出现需要关注的变化时，由 Agent 汇总并告知。</p>
+                <p>用户想主动了解时进入健康套件；当状态变化值得关注时，由 Agent 汇总并告知。</p>
                 <b>首页承接主动查看，巡检报告补足用户没有打开页面的时刻。</b>
               </article>
               <article>
@@ -733,29 +847,17 @@
         <div class="health-section health-scene">
           <div class="health-section-title health-scene-title">
             <h3>全场景健康守护</h3>
-            <p>让用户在一个页面理解“今天怎么样”</p>
+            <p>将毫米波雷达感知转化为可理解的健康状态</p>
           </div>
           <p class="health-scene-copy">
-            如果心率、睡眠和活动分散在不同入口，用户需要自己拼凑结论。将三类信息围绕一个人同时呈现，让用户先理解整体状态，再按需查看细节。
+            整合毫米波雷达可获取的活动、呼吸、心率与睡眠等数据，并将原始感知结果转化为围绕人的可视化状态。用户不必理解传感器数据，也能先看懂当前整体情况，再按需查看细节。
           </p>
           <div class="health-scene-visual">
             <figure class="health-image-slot health-body-slot">
               <img src="../assets/images/health-module/full-scene-monitoring.webp" alt="全场景健康守护界面" loading="lazy" />
             </figure>
-            <div class="health-mini-tag health-tag-behavior">
-              <b>日常活动</b>
-              <span>活动轨迹 / 久坐 / 跌倒</span>
-            </div>
-            <div class="health-mini-tag health-tag-physical">
-              <b>身体指标</b>
-              <span>呼吸 / 心率</span>
-            </div>
-            <div class="health-mini-tag health-tag-sleep">
-              <b>睡眠情况</b>
-              <span>睡眠 / 小睡 / 起夜</span>
-            </div>
           </div>
-          <p class="health-frame-line">用户不必在多个功能之间往返，就能判断今天的状态是否需要关注。</p>
+          <p class="health-frame-line">将多维感知整合为可视化状态，让用户无需逐项解读，也能快速理解当下情况。</p>
         </div>
 
         <div class="health-section health-events">
@@ -841,28 +943,30 @@
         <div class="health-section health-intervention">
           <div class="health-section-title">
             <h3>主动健康干预</h3>
-            <p>怎样提醒，用户才愿意长期接受？</p>
+            <p>怎样提醒，既能推动行动，又不会制造长期负担？</p>
           </div>
           <div class="health-intervention-layout">
-            <div class="health-chain">
-              <b>用户长时间保持同一坐姿</b>
-              <i></i>
-              <span>持续达到 <strong>50 min</strong></span>
-              <i></i>
-              <span>判断为需要活动</span>
-              <i></i>
-              <b>通过屏幕 + 语音轻提醒</b>
-              <i></i>
-              <span>建议：<strong>起身活动 5 分钟</strong></span>
+            <div class="health-intervention-copy">
+              <div class="health-chain">
+                <b>用户长时间保持同一坐姿</b>
+                <i></i>
+                <span>持续达到 <strong>50 min</strong></span>
+                <i></i>
+                <span>判断为需要活动</span>
+                <i></i>
+                <b>通过屏幕 + 语音轻提醒</b>
+                <i></i>
+                <span>建议：<strong>起身活动 5 分钟</strong></span>
+              </div>
+              <p class="health-muted-note">
+                久坐属于用户可以自行处理的低风险事件，因此提醒应允许关闭或稍后处理，建议也要容易完成；避免把所有监测结果都升级为强提醒，降低长期使用中的提醒疲劳。
+              </p>
             </div>
             <div class="health-alert-card">
               <img src="../assets/images/health-module/sedentary-alert.webp" alt="久坐提醒弹窗" loading="lazy" />
             </div>
           </div>
-          <p class="health-muted-note">
-            久坐属于用户可以自行处理的低风险事件，因此提醒应允许关闭或稍后处理，建议也要容易完成；避免把所有监测结果都升级为强提醒，降低长期使用中的提醒疲劳。
-          </p>
-          <p class="health-frame-line">好的主动提醒让用户知道发生了什么，也保留是否立即行动的选择。</p>
+          <p class="health-frame-line">好的主动提醒不只是告知异常，也要让用户保有是否立即行动的选择。</p>
         </div>
 
         <div class="health-section health-emergency">
@@ -885,9 +989,9 @@
             <span>保留 10 秒响应窗口</span>
             <span>无人回应时联系紧急联系人 / 120</span>
           </div>
-          <p class="health-emergency-conclusion">用户真正需要的不是一条“异常”提示，而是在无法自行处理时，后续帮助仍能继续。</p>
+          <p class="health-emergency-conclusion">高风险场景里，用户真正需要的不是一条“异常”提示，而是在无法自行处理时，帮助仍能继续。</p>
           <p class="health-muted-note">
-            专业规则负责判断风险；我的设计关注如何让用户看得懂、来得及回应，并在无法回应时获得及时帮助。
+            风险判断由专业规则支撑；我的设计关注如何把风险转化为用户看得懂、来得及回应，并能继续推进帮助的体验路径。
           </p>
         </div>
       </section>
@@ -898,10 +1002,10 @@
           <h2>设计总结</h2>
         </div>
         <div class="summary-content">
-          <h3>设计的不再只是界面，而是人与智能系统之间的关系</h3>
+          <h3>设计的不再只是界面，而是人与智能系统之间的协作关系</h3>
           <p>
             HomeClaw 并不是一个已经商业化发布的最终产品，而是一次围绕 AI Agent 智能硬件体验的完整设计探索。
-            从产品定义、交互框架到体验验证，我尝试回答一个持续思考的问题：
+            从产品定义、交互框架到主动反馈与健康守护，我尝试回答一个持续思考的问题：
           </p>
           <p class="summary-emphasis">当 AI 从工具走向 Agent，产品设计应该如何随之改变？</p>
           <div class="summary-card-grid">
@@ -923,7 +1027,7 @@
             </article>
           </div>
           <p class="summary-closing">
-            过去我们设计的是功能如何被使用，而未来，我们设计的是人与智能系统如何建立长期、自然且可信的关系。
+            过去我们设计的是功能如何被使用，而在 Agent 产品中，更重要的是设计用户如何理解系统、信任系统，并在关键时刻愿意让系统介入。
           </p>
         </div>
       </section>
