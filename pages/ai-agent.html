@@ -8,39 +8,486 @@
       name="description"
       content="HomeClaw AI Agent 探索作品详情，展示桌面框架、主动感知系统与智能服务体验设计。"
     />
-    <link rel="stylesheet" href="../page.css" />
+    <link rel="stylesheet" href="../page.css?v=20260820-17" />
   </head>
   <body class="ai-agent-figma-page">
     <main class="agent-modular-page" aria-label="AI Agent 探索详情页">
       <canvas class="agent-starfield" aria-hidden="true"></canvas>
 
-      <section class="agent-slice agent-opening-section agent-reveal" aria-label="HomeClaw AI Agent 作品介绍">
+      <section id="project-intro" class="agent-cover agent-reveal" aria-label="HomeClaw AI Agent 作品介绍">
+        <div class="agent-cover-inner">
+          <header class="agent-cover-header">
+            <p>PROJECT PORTFOLIO · 2026</p>
+            <p>智能中屏</p>
+          </header>
+
+          <div class="agent-cover-hero">
+            <div class="agent-cover-title">
+              <h1>HomeClaw</h1>
+              <p>// 云唔智能 //</p>
+              <span>2025.03–2026.07</span>
+            </div>
+            <div class="agent-cover-introduction">
+              <p>
+                HomeClaw 是一款运行在智能中屏（带屏智能音箱）上的 Agent 桌面应用，具备自主感知、决策和执行能力，能够主动感知环境、记住用户习惯，并逐步形成更贴近家庭生活的服务。
+              </p>
+              <video
+                class="agent-cover-video"
+                src="../assets/videos/opening-no-text.webm"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                aria-label="HomeClaw 开篇视频"
+              ></video>
+            </div>
+          </div>
+
+          <section class="agent-cover-role" aria-labelledby="role-title">
+            <div>
+              <h2 id="role-title">我的角色</h2>
+              <p class="agent-cover-role-en">Product Designer / UX Designer</p>
+            </div>
+            <div>
+              <p>
+                负责将 Agent 能力从产品需求与服务场景，逐步转化为具体的交互框架与界面体验，并协同推进方案验证与落地。
+              </p>
+              <p>
+                工作覆盖产品需求梳理、服务场景设计、Agent 交互框架、主动服务机制、零级入口、多模态交互与状态反馈，以及 UI 设计、规范定义和前端质量验证。
+              </p>
+              <ul class="agent-cover-role-tags" aria-label="项目职责">
+                <li>AI Agent 交互框架设计</li>
+                <li>核心场景流程设计</li>
+                <li>产品需求梳理</li>
+                <li>需求调研分析</li>
+                <li>用户体验策略</li>
+                <li>人机交互体验设计</li>
+                <li>动效设计</li>
+                <li>多模态交互</li>
+                <li>前端界面生成与落地验证</li>
+                <li>语音交互设计</li>
+                <li>界面设计</li>
+                <li>UI 设计规范定义</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="agent-cover-background" aria-labelledby="background-title">
+            <header>
+              <h2 id="background-title">项目背景</h2>
+              <p>Project Background</p>
+            </header>
+            <div class="agent-cover-background-intro">
+              <h3>HomeClaw 的三阶段 AI 范式演进</h3>
+              <p>随着 AI 能力从指令执行走向自主 Agent，HomeClaw 也经历了从功能型设备到主动式智能伙伴的演进。</p>
+            </div>
+            <ol class="agent-cover-stages">
+              <li>
+                <span>01</span>
+                <h3>云唔精灵 1.0</h3>
+                <p class="agent-stage-type">基础智能硬件阶段</p>
+                <figure class="agent-stage-shot">
+                  <img src="../assets/images/ai-agent-html/stage-1-silent.png" alt="云唔精灵 1.0 功能型桌面" loading="lazy" />
+                </figure>
+                <p>产品初期目标是完成智能音箱的基础能力验证与规模交付，以功能连接用户。</p>
+                <p>用户通过触控卡片与基础语音指令完成音乐播放、天气查询、闹钟设置等高频任务。</p>
+                <strong>设备更像一个“功能入口”，用户需要主动寻找服务。</strong>
+              </li>
+              <li>
+                <span>02</span>
+                <h3>云唔精灵 2.0</h3>
+                <p class="agent-stage-type">AI Agent 探索阶段</p>
+                <figure class="agent-stage-shot">
+                  <img src="../assets/images/ai-agent-html/stage-2-agent.png" alt="云唔精灵 2.0 个性化桌面" loading="lazy" />
+                </figure>
+                <p>随着大语言模型的发展，AI 开始从传统语音助手向 Agent 方向演进。</p>
+                <p>产品体验停留在用户提出需求、AI 完成响应的交互关系中，设备对用户之间的关系并没有发生根本变化。</p>
+                <strong>能力更强，但仍需要用户先开口。</strong>
+              </li>
+              <li>
+                <span>03</span>
+                <h3>HomeClaw</h3>
+                <p class="agent-stage-type">主动式 Agent 阶段</p>
+                <figure class="agent-stage-shot">
+                  <img src="../assets/images/ai-agent-html/stage-3-homeclaw.png" alt="HomeClaw Agent 零级入口桌面" loading="lazy" />
+                </figure>
+                <p>随着新一代 Agent 框架出现，产品开始从“对话能力增强”进一步走向“自主执行与主动服务”。</p>
+                <p>产品目标从被动响应用户需求，转变为主动理解用户并提供服务。</p>
+                <strong>从功能型智能设备，转变为主动式 Agent 系统。</strong>
+              </li>
+            </ol>
+          </section>
+        </div>
+      </section>
+
+      <section id="core-challenges" class="agent-html-section agent-challenge-section agent-reveal" aria-label="核心挑战">
+        <header class="agent-challenge-overview">
+          <h2>核心挑战</h2>
+          <p class="agent-challenge-en">Core Challenges</p>
+          <p>
+            随着 AI 能力从“理解指令”向“自主规划与执行”演进，云唔精灵产品目标也从提升交互效率，
+            转向构建具备主动服务能力的 Agent 系统——<b>HomeClaw</b>。
+          </p>
+          <p>但在 2.0 阶段，虽然产品已经具备 AI Agent 对话能力，仍存在三个关键问题：</p>
+        </header>
+
+        <ol class="agent-challenge-list">
+          <li class="agent-challenge-card agent-challenge-01">
+            <div class="agent-challenge-index" aria-hidden="true">
+              <span>01</span>
+              <b>Challenge</b>
+            </div>
+            <div class="agent-challenge-body">
+              <h3>如何让设备从“响应用户需求”转变为“主动发现并满足用户需求”？</h3>
+              <p>2.0 阶段通过大模型能力增强了设备的理解能力，用户可以通过自然语言完成更复杂的任务。</p>
+              <p class="agent-challenge-lead">但交互模式本质仍未改变：</p>
+              <div class="agent-challenge-flow">
+                <span>用户提出需求</span>
+                <i aria-hidden="true"></i>
+                <span>AI 理解请求</span>
+                <i aria-hidden="true"></i>
+                <span>系统执行反馈</span>
+              </div>
+              <p class="agent-challenge-note">
+                设备依然需要用户主动唤醒和输入，无法基于环境、时间和用户状态主动提供服务。
+              </p>
+            </div>
+          </li>
+          <li class="agent-challenge-card agent-challenge-02">
+            <div class="agent-challenge-index" aria-hidden="true">
+              <span>02</span>
+              <b>Challenge</b>
+            </div>
+            <div class="agent-challenge-body">
+              <h3>如何让 AI 从一次性的工具，变成能够持续学习用户的智能伙伴？</h3>
+              <p>对话能力局限于单次会话，用户的偏好、习惯和历史行为无法沉淀。</p>
+              <p class="agent-challenge-lead">这就导致：</p>
+              <div class="agent-challenge-flow agent-challenge-flow-plain">
+                <span>每次交互需要重新建立上下文</span>
+                <span>长期使用价值难以形成</span>
+                <span>用户无法对设备产生依赖</span>
+              </div>
+              <p class="agent-challenge-note">
+                缺乏跨会话记忆，无法形成连续体验，无法形成“设备理解我”的认知。
+              </p>
+            </div>
+          </li>
+          <li class="agent-challenge-card agent-challenge-03">
+            <div class="agent-challenge-index" aria-hidden="true">
+              <span>03</span>
+              <b>Challenge</b>
+            </div>
+            <div class="agent-challenge-body">
+              <h3>如何从“功能入口驱动”转变为“用户意图驱动”的 Agent 交互模式？</h3>
+              <p>在传统智能音箱和 2.0 阶段，产品主要通过功能入口向用户展示能力。</p>
+              <p class="agent-challenge-lead">用户需要知道：</p>
+              <div class="agent-challenge-flow agent-challenge-flow-plain">
+                <span>有哪些功能</span>
+                <span>功能在哪里</span>
+                <span>应该如何操作</span>
+              </div>
+              <p class="agent-challenge-note">
+                但随着 AI 能力增强，用户需求已经从“调用功能”转向“表达目标”。
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="agent-slice agent-architecture-slice agent-reveal" aria-label="HomeClaw Agent 体验架构">
         <img
-          src="../assets/images/ai-agent-slices/ai-agent-section-01-role-updated.webp"
+          src="../assets/images/ai-agent-slices/ai-agent-opening-architecture.webp"
           width="1920"
-          height="13214"
-          alt="HomeClaw AI Agent 作品介绍、项目背景、桌面框架和主动感知系统设计"
+          height="1550"
+          alt="HomeClaw Agent 体验架构：用户交互层、感知理解执行记忆能力层、能力与服务层、数据基础层"
+          loading="lazy"
         />
-        <video
-          class="agent-opening-video"
-          src="../assets/videos/opening-no-text.webm"
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="metadata"
-          aria-label="开篇视频"
-        ></video>
+      </section>
+
+      <section id="desktop-framework" class="agent-html-section agent-reveal" aria-label="桌面框架关键设计决策">
+        <header class="agent-decision-overview">
+          <p class="agent-html-kicker">关键设计决策</p>
+          <h2>Core Design Decisions</h2>
+          <p>
+            基于前期识别出的三个核心挑战，我没有继续叠加功能，而是重新梳理人与设备的协作方式：
+            用户如何进入、Agent 如何理解，以及结果如何持续反馈。
+          </p>
+        </header>
+
+        <div class="agent-chapter-heading">
+          <div class="agent-chapter-index">
+            <span>01</span>
+            <h2>桌面框架</h2>
+          </div>
+          <div class="agent-chapter-copy">
+            <p class="agent-html-kicker">从卡片式到“零级入口”</p>
+            <h3>让用户表达目标，而不是先理解产品功能</h3>
+            <p>
+              当 AI 从功能执行者转向 Agent，传统的“打开设备 → 浏览功能 → 选择服务 → 执行任务”开始成为负担。
+              用户需要记住产品有什么能力、入口在哪里，才能完成一次交互。
+            </p>
+            <p class="agent-html-emphasis">设计方向：把桌面从功能目录，转变为用户与 Agent 协作的起点。</p>
+          </div>
+        </div>
+
+        <div class="agent-desktop-evolution">
+          <div class="agent-screen-pair" aria-label="1.0 与 2.0 桌面对比">
+            <figure class="agent-product-shot">
+              <img
+                src="../assets/images/ai-agent-html/desktop-1-0.webp"
+                width="1668"
+                height="1048"
+                alt="HomeClaw 1.0 功能型桌面"
+                loading="lazy"
+              />
+              <figcaption><span>1.0</span>产品预设内容与功能入口</figcaption>
+            </figure>
+            <figure class="agent-product-shot">
+              <img
+                src="../assets/images/ai-agent-html/desktop-2-0.webp"
+                width="1668"
+                height="1048"
+                alt="HomeClaw 2.0 个性化桌面"
+                loading="lazy"
+              />
+              <figcaption><span>2.0</span>用户按需要组织桌面</figcaption>
+            </figure>
+          </div>
+
+          <div class="agent-evolution-decisions">
+            <article>
+              <span>01</span>
+              <div>
+                <h4>从内容推荐，到状态与服务</h4>
+                <p>减少“系统想展示什么”，优先呈现用户此刻需要了解和处理的事情。</p>
+                <strong>桌面首先回答：我现在需要关注什么？</strong>
+              </div>
+            </article>
+            <article>
+              <span>02</span>
+              <div>
+                <h4>从固定桌面，到个性化桌面</h4>
+                <p>把能力的组织权交给用户，让高频服务留在最熟悉的位置。</p>
+                <strong>产品提供能力，用户决定自己的首页。</strong>
+              </div>
+            </article>
+            <article>
+              <span>03</span>
+              <div>
+                <h4>从功能入口，到场景入口</h4>
+                <p>弱化“打开某个 App”，转向“家庭健康、联系家人、生活提醒”等真实目标。</p>
+                <strong>用户不需要知道哪项功能负责完成任务。</strong>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="agent-mode-comparison">
+          <div class="agent-mode-label">
+            <p class="agent-html-kicker">交互模型</p>
+            <h3>从“用户找功能”到“Agent 理解意图”</h3>
+            <p>两种模式的区别不在步骤多少，而在认知负担由谁承担。</p>
+          </div>
+          <div class="agent-mode-row agent-mode-row-legacy">
+            <div class="agent-mode-title"><b>传统模式</b><span>功能导向</span></div>
+            <ol>
+              <li><b>明确任务</b><span>用户先判断自己要什么</span></li>
+              <li><b>寻找入口</b><span>在设备中定位对应功能</span></li>
+              <li><b>调用服务</b><span>选择并启动功能</span></li>
+              <li><b>获得结果</b><span>完成任务后离开</span></li>
+            </ol>
+          </div>
+          <div class="agent-mode-row agent-mode-row-agent">
+            <div class="agent-mode-title"><b>Agent 模式</b><span>意图驱动</span></div>
+            <ol>
+              <li><b>表达目标</b><span>用户用自然语言描述需要</span></li>
+              <li><b>理解上下文</b><span>Agent 判断真实意图</span></li>
+              <li><b>调度能力</b><span>自主规划并执行</span></li>
+              <li><b>主动反馈</b><span>说明结果与下一步</span></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="agent-zero-entry">
+          <header class="agent-zero-entry-header">
+            <p class="agent-zero-entry-title">“零级入口”</p>
+            <p class="agent-zero-entry-subtitle">从功能调用到意图表达</p>
+          </header>
+          <div class="agent-zero-entry-grid">
+            <div class="agent-stage-rail" aria-label="桌面能力演进阶段">
+              <div><span>1.0阶段</span><p>告诉用户“我有什么”</p></div>
+              <i aria-hidden="true"></i>
+              <div><span>2.0阶段</span><p>用户决定“我要什么”</p></div>
+              <i aria-hidden="true"></i>
+              <div class="is-current"><span>3.0阶段</span><p>Home Claw 理解“用户需要什么”</p></div>
+            </div>
+            <figure class="agent-product-shot agent-zero-entry-shot">
+              <img
+                src="../assets/images/ai-agent-html/agent-zero-entry.webp?v=20260820-7"
+                width="884"
+                height="560"
+                alt="HomeClaw Agent 零级入口桌面"
+                loading="lazy"
+              />
+            </figure>
+            <div class="agent-zero-entry-copy">
+              <h3>桌面不再是功能展示区域，<br />而成为 <span class="agent-html-emphasis">Agent</span> 存在的空间。</h3>
+              <p>
+                随着 AI Agent 能力成熟，设备不再需要用户提前理解和管理所有能力。
+              </p>
+              <p>
+                因此桌面从：“功能展示与管理空间”
+              </p>
+              <p>
+                转变为：用户与 Agent 协作空间。
+              </p>
+              <p>用户只需要表达目标：</p>
+              <ul class="agent-zero-entry-quotes">
+                <li>“帮我安排明天行程”</li>
+                <li>“最近睡眠不好”</li>
+                <li>“提醒我联系家人”</li>
+              </ul>
+              <p>Agent 根据上下文理解需求，并自主调度对应能力。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="active-perception" class="agent-html-section agent-perception-section agent-reveal" aria-label="主动感知系统">
+        <div class="agent-chapter-heading">
+          <div class="agent-chapter-index">
+            <span>02</span>
+            <h2>主动感知系统</h2>
+          </div>
+          <div class="agent-chapter-copy">
+            <p class="agent-html-kicker">从“人找服务”到“服务找人”</p>
+            <h3>设备能否在用户没有主动输入时，理解用户状态并提供合适服务</h3>
+            <p>
+              在探索 Agent 产品形态时，我发现单纯提升 AI 的回答能力，并不能解决智能设备长期使用的问题。
+            </p>
+            <p class="agent-html-emphasis">真正要解决的，是用户开口之前的那段时间。</p>
+          </div>
+        </div>
+
+        <div class="agent-perception-limit">
+          <div class="agent-limit-copy">
+            <p class="agent-limit-lead">在传统智能助手模式下，系统的运行逻辑是：</p>
+            <div class="agent-limit-flow" aria-label="传统智能助手运行逻辑">
+              <span>用户输入</span>
+              <i aria-hidden="true"></i>
+              <span>AI 理解</span>
+              <i aria-hidden="true"></i>
+              <span>返回结果</span>
+            </div>
+            <p class="agent-limit-lead">AI 的能力被限制在用户主动发起的瞬间，设备仍然需要：</p>
+            <ul class="agent-limit-list">
+              <li>用户主动唤醒</li>
+              <li>用户明确提出需求</li>
+              <li>用户知道自己需要什么服务</li>
+            </ul>
+            <p class="agent-limit-note">但在真实生活场景中，很多需求并不会被用户主动提出。</p>
+          </div>
+          <div class="agent-chat-mock" aria-label="传统一问一答式交互示例">
+            <p class="agent-chat-bubble agent-chat-user">今天天气怎么样？</p>
+            <div class="agent-chat-bubble agent-chat-ai">
+              <b>杭州余杭今日（7 月 8 日）天气</b>
+              <p>全天概况：多云，气温 27℃~34℃，空气质量优，午后局部短时小雨，体感闷热。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="agent-perception-value">
+          <p>我认为 Agent 的核心价值不是：“有问必答”</p>
+          <p class="agent-html-emphasis">而是：“在合适的时间提供合适的帮助。”</p>
+        </div>
+
+        <div class="agent-perception-system">
+          <figure class="agent-product-shot">
+            <img
+              src="../assets/images/ai-agent-html/perception-inspection-settings.webp"
+              width="990"
+              height="606"
+              alt="主动感知巡检设置界面：巡检范围、巡检设置与通知设置"
+              loading="lazy"
+            />
+            <figcaption><span>巡检</span>用户决定 Agent 关注什么、何时执行</figcaption>
+          </figure>
+          <div class="agent-service-chain">
+            <p class="agent-service-chain-lead">构建基于硬件感知和 Agent 调度机制的主动服务系统。</p>
+            <ol>
+              <li>持续获取用户状态</li>
+              <li>判断潜在需求</li>
+              <li>主动生成服务</li>
+              <li>根据风险等级决定干预方式</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="agent-proactive-levels">
+          <div class="agent-levels-intro">
+            <p class="agent-html-kicker">设计决策：主动性的边界</p>
+            <h3>主动服务最大的挑战不是“如何主动”，而是什么情况下应该主动</h3>
+            <p>过度主动，用户觉得打扰；过度被动，Agent 失去价值。因此设计三层主动等级：</p>
+          </div>
+          <div class="agent-level-grid">
+            <article class="agent-level-l1">
+              <span>L1 日常关怀</span>
+              <h4>晨间问候、信息推送</h4>
+              <dl>
+                <div><dt>行为</dt><dd>主动反馈 + 服务协议</dd></div>
+                <div><dt>策略</dt><dd>自动触发 + 低打扰</dd></div>
+              </dl>
+            </article>
+            <article class="agent-level-l2">
+              <span>L2 场景自动化</span>
+              <h4>环境调节、设备控制</h4>
+              <dl>
+                <div><dt>行为</dt><dd>自动执行 + 进度反馈</dd></div>
+                <div><dt>策略</dt><dd>用户授权</dd></div>
+              </dl>
+            </article>
+            <article class="agent-level-l3">
+              <span>L3 风险介入</span>
+              <h4>跌倒检测、健康异常</h4>
+              <dl>
+                <div><dt>行为</dt><dd>紧急呼叫 + 通知家属</dd></div>
+                <div><dt>策略</dt><dd>快速确认</dd></div>
+              </dl>
+            </article>
+          </div>
+        </div>
+
+        <div class="agent-heartbeat">
+          <figure class="agent-product-shot">
+            <img
+              src="../assets/images/ai-agent-html/perception-sleep-report.webp"
+              width="990"
+              height="650"
+              alt="Agent 主动推送的睡眠日报卡片"
+              loading="lazy"
+            />
+            <figcaption><span>L1 示例</span>每天清晨主动汇报昨夜睡眠</figcaption>
+          </figure>
+          <div class="agent-heartbeat-rule">
+            <h4>晨间睡眠反馈的设计规则</h4>
+            <p class="agent-heartbeat-lead">把“每天生成一份报告”，转化为用户愿意接收的低打扰服务：</p>
+            <ul>
+              <li>仅在用户开启服务、且昨夜数据完整时触达，避免无意义提醒</li>
+              <li>先给出一眼能看懂的结论，再提供指标作为依据</li>
+              <li>反馈放在早晨这一稳定时段，避免在夜间或工作中打断用户</li>
+              <li>对于正常状态保持简短；出现变化时，说明原因并给出下一步建议</li>
+            </ul>
+            <div class="agent-heartbeat-format">
+              <b>睡眠日报</b>
+              <p>昨夜睡眠整体平稳，入睡时间与起夜次数没有明显变化。</p>
+              <p>若发现连续几天睡眠质量下降，会说明具体变化，并建议用户查看详情或调整当天安排。</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="agent-video-section agent-video-section-filled agent-reveal" aria-label="视频区域一" data-video-slot="1">
-        <img
-          src="../assets/images/ai-agent-slices/ai-agent-video-01-placeholder.webp"
-          width="1920"
-          height="738"
-          alt="视频区域一占位"
-        />
-        <!-- 后续上传视频后，将 video src 指向 assets/videos/ 下的文件即可。 -->
         <video
           class="agent-video-frame"
           src="../assets/videos/active-perception-inspection.webm"
@@ -53,49 +500,103 @@
         ></video>
       </section>
 
-      <section class="agent-slice agent-state-section agent-reveal" aria-label="可感知的交互载体">
-        <img
-          src="../assets/images/ai-agent-slices/ai-agent-section-02-clean.webp"
-          width="1920"
-          height="1129"
-          alt="可感知的交互载体与 Agent 状态反馈体系"
-        />
-        <div class="agent-state-animations" aria-hidden="true">
-          <img
-            class="agent-state-animation agent-state-waiting"
-            src="../assets/images/ai-agent-states/waiting.webp"
-            alt=""
-          />
-          <img
-            class="agent-state-animation agent-state-output"
-            src="../assets/images/ai-agent-states/content-output.webp"
-            alt=""
-          />
-          <img
-            class="agent-state-animation agent-state-receiving"
-            src="../assets/images/ai-agent-states/voice-receiving.webp"
-            alt=""
-          />
-          <img
-            class="agent-state-animation agent-state-understanding"
-            src="../assets/images/ai-agent-states/understanding.webp"
-            alt=""
-          />
-          <img
-            class="agent-state-animation agent-state-error"
-            src="../assets/images/ai-agent-states/error-feedback.webp"
-            alt=""
-          />
+      <section id="agent-persona" class="agent-html-section agent-persona-section agent-reveal" aria-label="可感知的交互载体">
+        <div class="agent-chapter-heading">
+          <div class="agent-chapter-index">
+            <span>03</span>
+            <h2>可感知的<br />交互载体</h2>
+          </div>
+          <div class="agent-chapter-copy">
+            <p class="agent-html-kicker">从语音助手到智能伙伴</p>
+            <h3>让不可见的 AI 状态变得可感知</h3>
+            <p>随着 HomeClaw 从 AI Assistant 向 AI Agent 演进，设备的角色发生变化。</p>
+            <div class="agent-persona-shift">
+              <div>
+                <b>过去</b>
+                <p>语音助手只是隐藏在系统中的一个功能入口。用户通过唤醒词触发设备，完成一次性的指令交互。</p>
+              </div>
+              <div>
+                <b>现在</b>
+                <p>
+                  Agent 模式下，设备需要<strong>持续理解用户、主动反馈状态、建立长期交互关系</strong>。
+                </p>
+              </div>
+            </div>
+            <p class="agent-html-emphasis">
+              我们引入 IP 形象作为 Agent 的视觉载体，让不可见的 AI 状态变得可感知。
+            </p>
+            <div class="agent-persona-pills" aria-label="IP 形象承担的设计职责">
+              <span>状态可视化</span>
+              <span>过程反馈</span>
+              <span>情绪表达</span>
+              <span>关系建立</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="agent-state-system">
+          <div class="agent-state-system-title">
+            <h3>Agent 状态反馈体系</h3>
+            <p>
+              Agent 的交互过程包含多个不可见状态，通过 IP 动作和表情进行视觉化反馈，让用户理解当前系统状态。
+            </p>
+          </div>
+          <ul class="agent-state-grid">
+            <li>
+              <img
+                class="agent-state-figure"
+                src="../assets/images/ai-agent-states/waiting.webp"
+                alt="待机状态：IP 形象安静待命的动作"
+                loading="lazy"
+              />
+              <h4>待机状态</h4>
+              <p>保持陪伴感，同时避免过度打扰。</p>
+            </li>
+            <li>
+              <img
+                class="agent-state-figure"
+                src="../assets/images/ai-agent-states/content-output.webp"
+                alt="内容输出状态：IP 形象播报信息的动作"
+                loading="lazy"
+              />
+              <h4>内容输出状态</h4>
+              <p>通过动作反馈，让用户知道 Agent 正在进行信息播报。</p>
+            </li>
+            <li>
+              <img
+                class="agent-state-figure"
+                src="../assets/images/ai-agent-states/voice-receiving.webp"
+                alt="语音接收状态：IP 形象聆听用户输入的动作"
+                loading="lazy"
+              />
+              <h4>语音接收状态</h4>
+              <p>明确表达设备正在接收用户输入，降低等待焦虑。</p>
+            </li>
+            <li>
+              <img
+                class="agent-state-figure"
+                src="../assets/images/ai-agent-states/understanding.webp"
+                alt="理解处理中：IP 形象思考推理的动作"
+                loading="lazy"
+              />
+              <h4>理解处理中</h4>
+              <p>将 AI 的处理过程可视化，增强用户对系统状态的理解。</p>
+            </li>
+            <li>
+              <img
+                class="agent-state-figure"
+                src="../assets/images/ai-agent-states/error-feedback.webp"
+                alt="异常反馈状态：IP 形象表达出错的表情"
+                loading="lazy"
+              />
+              <h4>异常反馈状态</h4>
+              <p>通过 IP 表情变化传递错误信息，降低冰冷的系统提示感。</p>
+            </li>
+          </ul>
         </div>
       </section>
 
       <section class="agent-video-section agent-video-section-filled agent-reveal" aria-label="视频区域二" data-video-slot="2">
-        <img
-          src="../assets/images/ai-agent-slices/ai-agent-video-02-placeholder.webp"
-          width="1920"
-          height="738"
-          alt="视频区域二占位"
-        />
         <video
           class="agent-video-frame"
           src="../assets/videos/wake-interaction.webm"
@@ -108,14 +609,7 @@
         ></video>
       </section>
 
-      <section class="agent-slice agent-reveal" aria-label="页面结尾">
-        <img
-          src="../assets/images/ai-agent-slices/ai-agent-section-03.webp"
-          width="1920"
-          height="134"
-          alt=""
-        />
-      </section>
+      <div class="agent-section-gap" aria-hidden="true"></div>
 
       <section id="health" class="health-module agent-reveal" aria-label="健康管理与主动守护">
         <div class="health-section health-hero">
