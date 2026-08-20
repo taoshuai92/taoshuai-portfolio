@@ -3,3 +3,6 @@ assets/**/.DS_Store
 node_modules/
 dist/
 tmp/
+
+# 本地备份目录，不进仓库
+.backup/
